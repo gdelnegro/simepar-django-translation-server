@@ -5,6 +5,8 @@ python:
   - 3.4
   - 3.5
 
+addons:
+  postgresql: "9.4"
 services: postgresql
 
 env:
@@ -18,8 +20,6 @@ env:
 # - CPPFLAGS=-Qunused-arguments
 
 before_install:
-  - sudo apt-get install postgresql-server-dev-all # install postgreSQL
-  - sudo apt-get install postgis # install postGIS extension for postgreSQL
   - sudo apt-get install libjpeg-dev # install libjpeg extension
   - sudo apt-get install python3-dev # install python3 header files and static library for Python 3
   - sudo apt-get install python3-pip
