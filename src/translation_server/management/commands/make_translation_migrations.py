@@ -13,8 +13,9 @@ from translation_server.models import Translation
 class Command(BaseCommand):
     help = "This command generates migrations for translations, based on the contents of 'Translation' model"
 
-    # todo: get the migrations dir from settings, if settings doesn't exists, use /translation_server/migrations
-    # todo: execute git params based in command
+    app_name = "translation_server"
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
     updated_translations = []
 
     migration_string = """# -*- coding: utf-8 -*-
@@ -27,8 +28,8 @@ from django.db import migrations
 def __load_data(**kwargs):
     apps = kwargs.pop('apps', None)
     if apps:
-        translation_type = apps.get_model("translation_server", "TranslationType")
-        model = apps.get_model("translation_server", "Translation")
+        translation_type = apps.get_model("%(app_name)s", "TranslationType")
+        model = apps.get_model("%(app_name)s", "Translation")
         try:
             mdl = model.objects.get(tag=kwargs['tag'])
         except model.DoesNotExist:
@@ -45,7 +46,7 @@ def __load_data(**kwargs):
 
 
 def clear_data(apps, schema_editor):
-    model = apps.get_model("translation_server", "Translation")
+    model = apps.get_model("%(app_name)s", "Translation")
     model.objects.filter(tag__in=[%(tags_to_remove)s]).delete()
 
 
@@ -56,7 +57,7 @@ def load_data(apps, schema_editor):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('translation_server', '%(dependency)s'),
+        ('%(app_name)s', '%(dependency)s'),
     ]
 
     operations = [
@@ -74,11 +75,11 @@ class Migration(migrations.Migration):
                 % {
                     'tag': translation.tag,
                     'type': translation.type.tag,
-                    'text_pt': translation.text_pt_br,
-                    'text_en': translation.text_en,
+                    'text_pt': translation.text_pt_br.replace('"', '\\"'),
+                    'text_en': translation.text_en.replace('"', '\\"'),
                     'aux_tag': translation.auxiliary_tag,
-                    'aux_text_pt': translation.auxiliary_text_pt_br if translation.auxiliary_text_pt_br else "",
-                    'aux_text_en': translation.auxiliary_text_en if translation.auxiliary_text_en else "",
+                    'aux_text_pt': translation.auxiliary_text_pt_br.replace('"', '\\"') if translation.auxiliary_text_pt_br else "",
+                    'aux_text_en': translation.auxiliary_text_en.replace('"', '\\"') if translation.auxiliary_text_en else "",
                 }
             )
             self.updated_translations.append(translation.tag)
@@ -91,10 +92,18 @@ class Migration(migrations.Migration):
             translation.save()
 
     def __create_translation_migration(self):
+        """ """
         """ Create an empty migration """
-        migrations_dir = settings.BASE_DIR + '/migrations/'
-        dependency_migration = os.path.basename(max(glob.iglob(migrations_dir + '*.py'), key=os.path.getctime)).replace(".py", "")
-        call_command('makemigrations', 'portfolio', "--empty")
+        migrations_dir = os.path.join(self.BASE_DIR, "../../migrations/")
+        dependency_migration = os.path.basename(max(glob.iglob(migrations_dir + '*.py'), key=os.path.getctime)).replace(
+            ".py", "")
+        """
+        If there's no migration before this, which is unlikely to happen, then create a migration without dependencies
+        """
+        if "__init__" in dependency_migration:
+            dependency_migration = ""
+        """ Make an empty migration """
+        call_command('makemigrations', self.app_name, "--empty")
         """ Get last migration name and edit it, adding the new code """
         last_migration_file = max(glob.iglob(migrations_dir + '*.py'), key=os.path.getctime)
         new_lines = self.__create_translation_lines()
@@ -106,7 +115,8 @@ class Migration(migrations.Migration):
                         'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
                         'translation_strings': "\n".join(new_lines),
                         'dependency': dependency_migration,
-                        'tags_to_remove': ", ".join('"{0}"'.format(tag) for tag in self.updated_translations)
+                        'tags_to_remove': ", ".join('"{0}"'.format(tag) for tag in self.updated_translations),
+                        'app_name': self.app_name
                     })
             else:
                 os.remove(last_migration_file)
@@ -115,12 +125,14 @@ class Migration(migrations.Migration):
             os.remove(last_migration_file)
             raise error
         else:
-            import subprocess
-            os.chdir(migrations_dir)
-            subprocess.call(["git", "add", "."])
-            subprocess.call(["git", 'commit', "-m", "Added new translation migration"])
+            pass
             self.__update_translation()
-            subprocess.call(["git", "push"])
+            # todo: add git integration
+            # import subprocess
+            # os.chdir(migrations_dir)
+            # subprocess.call(["git", "add", "."])
+            # subprocess.call(["git", 'commit', "-m", "Added new translation migration"])
+            # subprocess.call(["git", "push"])
 
     def handle(self, *args, **options):
         self.__create_translation_migration()

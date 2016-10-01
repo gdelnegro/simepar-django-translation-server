@@ -1,19 +1,24 @@
 # -*- coding: utf-8 -*-
 # Created by Gustavo Del Negro <gustavodelnegro@gmail.com> on 10/1/16.
 from django.core.management import BaseCommand
-from django.conf import settings
 from datetime import datetime
 from translation_server.models import Translation
 from django.core.management import call_command
+import os
 
 
 class Command(BaseCommand):
     help = "This command generates the translation files, based on the contents of 'Translation' model"
 
-    @staticmethod
-    def __create_translation_files():
-        dir_en_us = settings.BASE_DIR + '/locale/en/LC_MESSAGES/'
-        dir_pt_br = settings.BASE_DIR + '/locale/pt_BR/LC_MESSAGES/'
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+    def __create_translation_files(self):
+        dir_en_us = self.BASE_DIR + '/../../locale/en/LC_MESSAGES/'
+        dir_pt_br = self.BASE_DIR + '/../../locale/pt_BR/LC_MESSAGES/'
+        if not os.path.exists(dir_en_us):
+            os.makedirs(dir_en_us)
+        if not os.path.exists(dir_pt_br):
+            os.makedirs(dir_pt_br)
         file_en_us = open(dir_en_us + "django.po", "w+")
         file_pt_br = open(dir_pt_br + "django.po", "w+")
         header = """
