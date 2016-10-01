@@ -26,8 +26,8 @@ from django.db import migrations
 
 def __load_data(**kwargs):
     apps = kwargs.pop('apps', None)
-    translation_type = apps.get_model("translation_server", "TranslationType")
     if apps:
+        translation_type = apps.get_model("translation_server", "TranslationType")
         model = apps.get_model("translation_server", "Translation")
         try:
             mdl = model.objects.get(tag=kwargs['tag'])

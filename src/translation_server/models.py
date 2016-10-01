@@ -1,23 +1,14 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
-TRANSLATION_TYPES_CHOICES = (
-    ('MDL', _('MDL1')),
-    ('TTP', _('MDL2')),
-    ('MTA', _('MDL3')),
-    ('MTP', _('MDL4')),
-    ('GEN', _('MDL5')),
-    ('GTP', _('MDL6'))
-)
-
 
 class TranslationType(models.Model):
-    created_at = models.DateTimeField(_('MDL7'), auto_now_add=True, null=True, blank=True, help_text=_('TTP7'))
-    updated_at = models.DateTimeField(_('MDL8'), auto_now=True, null=True, blank=True, help_text=_('TTP8'))
-    tag = models.CharField(_('MDL9'), help_text=_('TTP9'), max_length=20, unique=True)
-    name = models.TextField(_('MDL10'), help_text=_('TTP10'))
-    has_auxiliary_text = models.BooleanField(_('MDL11'), help_text=_('TTP11'), default=True)
-    auxiliary_tag = models.CharField(_('MDL12'), help_text=_('TTP12'), max_length=20, unique=True)
+    created_at = models.DateTimeField(_('MDL1'), auto_now_add=True, null=True, blank=True, help_text=_('TTP1'))
+    updated_at = models.DateTimeField(_('MDL2'), auto_now=True, null=True, blank=True, help_text=_('TTP2'))
+    tag = models.CharField(_('MDL3'), help_text=_('TTP3'), max_length=20, unique=True)
+    name = models.TextField(_('MDL4'), help_text=_('TTP4'))
+    has_auxiliary_text = models.BooleanField(_('MDL5'), help_text=_('TTP5'), default=True)
+    auxiliary_tag = models.CharField(_('MDL6'), help_text=_('TTP6'), max_length=20, unique=True)
 
     class Meta:
         verbose_name = _('MTA1')
@@ -31,15 +22,15 @@ class TranslationType(models.Model):
 
 
 class Translation(models.Model):
-    created_at = models.DateTimeField(_('MDL7'), auto_now_add=True, null=True, blank=True, help_text=_('TTP7'))
-    updated_at = models.DateTimeField(_('MDL8'), auto_now=True, null=True, blank=True, help_text=_('TTP8'))
+    created_at = models.DateTimeField(_('MDL1'), auto_now_add=True, null=True, blank=True, help_text=_('TTP1'))
+    updated_at = models.DateTimeField(_('MDL2'), auto_now=True, null=True, blank=True, help_text=_('TTP2'))
     type = models.ForeignKey(TranslationType, on_delete=None, related_name="translation_translation_type",
-                             verbose_name=_('MDL13'), help_text=_('TTP13'))
-    tag = models.CharField(_('MDL14'), help_text=_('TTP14'), max_length=20, unique=True)
-    text = models.TextField(_('MDL15'), help_text=_('TTP15'))
-    auxiliary_tag = models.CharField(_('MDL16'), help_text=_('TTP16'), max_length=20, blank=True, null=True)
-    auxiliary_text = models.TextField(_('MDL17'), help_text=_('TTP17'), blank=True, null=True)
-    migration_created = models.BooleanField(_('MDL18'), help_text=_('TTP18'), default=False)
+                             verbose_name=_('MDL7'), help_text=_('TTP7'))
+    tag = models.CharField(_('MDL8'), help_text=_('TTP8'), max_length=20, unique=True)
+    text = models.TextField(_('MDL9'), help_text=_('TTP9'))
+    auxiliary_tag = models.CharField(_('MDL10'), help_text=_('TTP10'), max_length=20, blank=True, null=True)
+    auxiliary_text = models.TextField(_('MDL11'), help_text=_('TTP11'), blank=True, null=True)
+    migration_created = models.BooleanField(_('MDL12'), help_text=_('TTP12'), default=False)
 
     class Meta:
         verbose_name = _('MTA2')
