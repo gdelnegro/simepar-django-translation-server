@@ -28,13 +28,15 @@ SECRET_KEY = '^7x%(+vz-re)#mwbn4dhs-do7&!q^#89tcpcoyc7ihdm0binap'
 # Application definition
 
 INSTALLED_APPS = [
+    'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'translation_server'
+    'rest_framework',
+    'translation_server',
 ]
 
 MIDDLEWARE = [

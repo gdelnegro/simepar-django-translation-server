@@ -15,6 +15,10 @@ Apache2 (https://httpd.apache.org)
 
 Apache 2 mod_wsgi
 
+DjangoRestFramework
+
+Django Model Translation
+
 ##Project installation
 
 ###Installing dependencies
