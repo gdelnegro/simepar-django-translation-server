@@ -25,8 +25,12 @@ install:
 before_script:
   - psql -c "CREATE DATABASE travisdb;" -U postgres
 
+before_script:
+  python manage.py runserver &
+
 script:
-  - sh build_forum.sh
+  coverage run manage.py tests
+  coverage run functional_tests.py
 
 after_success:
 - pip freeze
