@@ -19,6 +19,8 @@ DjangoRestFramework
 
 Django Model Translation
 
+django-filter
+
 ##Project installation
 
 ###Installing dependencies

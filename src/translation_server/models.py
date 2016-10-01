@@ -65,9 +65,10 @@ class LastTranslationTag(object):
 
     def return_last_tag(self):
         from django.db import connection
-        # query = """ SELECT max(tag) FROM portfolio_translation WHERE tag LIKE '%s%%' """ % self.translation_tag
-        query = "SELECT tag FROM portfolio_translation WHERE tag LIKE '%(translation_tag)s%%' ORDER BY NULLIF(regexp_replace(TAG, E'\\\\D', '', 'g'), '')::int DESC LIMIT 1" % {
-            'translation_tag': self.translation_tag}
+        query = "SELECT tag FROM %(translation_table)s WHERE tag LIKE '%(translation_tag)s%%' ORDER BY NULLIF(regexp_replace(TAG, E'\\\\D', '', 'g'), '')::int DESC LIMIT 1" % {
+            'translation_tag': self.translation_tag,
+            'translation_table': Translation._meta.db_table
+        }
         cursor = connection.cursor()
         try:
             cursor.execute(query)
