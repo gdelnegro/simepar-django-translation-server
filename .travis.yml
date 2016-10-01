@@ -2,16 +2,16 @@ language: python
 
 python:
   - 3.3
-  - 3.4
-  - 3.5
+#  - 3.4
+#  - 3.5
 
 addons:
   postgresql: "9.4"
+
 services: postgresql
 
 env:
   global:
-# - DJANGO="x.y.z"
   - DJANGO_SETTINGS_MODULE="django_simepar_translation_server.settings"
   - PYTHONPATH="/home/gdelnegro/projects/simepar/simepar-django-translation-server"
   - PIP_USE_MIRRORS=true
@@ -22,15 +22,13 @@ env:
 before_install:
   - sudo apt-get install libjpeg-dev # install libjpeg extension
   - sudo apt-get install python3-dev # install python3 header files and static library for Python 3
-  - sudo apt-get install python3-pip
   - sudo pip install --upgrade virtualenv # install or upgrade virtualenv
 install:
   - pip install -r requirements.txt
-  - pip install coveralls radon
+#  - pip install coveralls radon
 # - pip install pip-tools --quiet
 
 before_script:
-  - psql -c "CREATE DATABASE travisdb;" -U postgres
   - psql -c "CREATE ROLE simepar_translation WITH LOGIN;" -U postgres
   - psql -c "CREATE DATABASE simepar_translation WITH OWNER simepar_translation;" -U postgres
   - psql -c "ALTER ROLE simepar_translation WITH PASSWORD 'simepar_translation';" -U postgres
@@ -40,7 +38,7 @@ before_script:
 
 script:
   - python manage.py migrate
-  - python manage.py runserver &
+  - python manage.py runserver
 #  coverage run manage.py tests
 #  coverage run functional_tests.py
 
