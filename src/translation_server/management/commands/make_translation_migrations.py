@@ -106,7 +106,7 @@ class Migration(migrations.Migration):
                         'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
                         'translation_strings': "\n".join(new_lines),
                         'dependency': dependency_migration,
-                        'tags_to_remove': ",".join('"{0}"'.format(tag) for tag in self.updated_translations)
+                        'tags_to_remove': ", ".join('"{0}"'.format(tag) for tag in self.updated_translations)
                     })
             else:
                 os.remove(last_migration_file)
