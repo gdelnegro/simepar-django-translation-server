@@ -65,7 +65,7 @@ sudo -su postgres
 ```
 As postgres user, connect to postgreSQL `psql`, and execute the following commands:
 
-Wallops
+
 ```bash
 CREATE ROLE simepar_translation WITH LOGIN; # create the user simepar_translation
 CREATE DATABASE simepar_translation WITH OWNER simepar_translation; # create the database simepar_translation, with user simepar_translation as owner

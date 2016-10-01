@@ -13,6 +13,8 @@ from translation_server.models import Translation
 class Command(BaseCommand):
     help = "This command generates migrations for translations, based on the contents of 'Translation' model"
 
+    # todo: get the migrations dir from settings, if settings doesn't exists, use /translation_server/migrations
+    # todo: execute git params based in command
     updated_translations = []
 
     migration_string = """# -*- coding: utf-8 -*-
