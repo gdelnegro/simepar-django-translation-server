@@ -120,13 +120,13 @@ class Migration(migrations.Migration):
                     })
             else:
                 os.remove(last_migration_file)
-                raise Exception("There's no new translations to migrate")
+                self.stdout.write(self.style.NOTICE("There was no new translations to make migrations"))
         except Exception as error:
             os.remove(last_migration_file)
             raise error
         else:
-            pass
             self.__update_translation()
+            self.stdout.write(self.style.SUCCESS("Translation migration file create successfully"))
             # todo: add git integration
             # import subprocess
             # os.chdir(migrations_dir)
