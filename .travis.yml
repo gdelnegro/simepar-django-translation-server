@@ -1,7 +1,7 @@
 language: python
 
 python:
-#  - 3.3
+  - 3.3
   - 3.4
   - 3.5
 
@@ -52,6 +52,6 @@ script:
 #    on_success: change
 #    on_failure: always
 
-# matrix:
-#   allow_failures:
-#     - python: 3.3
+ matrix:
+   allow_failures:
+     - python: 3.3
