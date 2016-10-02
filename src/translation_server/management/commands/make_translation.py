@@ -64,3 +64,8 @@ msgstr ""
     def handle(self, *args, **options):
         if self.__create_translation_files():
             call_command('compilemessages')
+            # if options['copy']:
+            #     copy the translation file
+            #     pass
+            # if options['locales_dir']:
+            #     pass

@@ -10,4 +10,5 @@ Translation project for django
 
 ```
 [ ] 001: Add suport to N languages, right now it suport only EN and PT-BR
+[ ] 002: Copy *.po *.mo files to project's root locales folder
 ```
