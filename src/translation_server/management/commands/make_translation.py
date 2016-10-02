@@ -47,11 +47,11 @@ msgstr ""
             file_pt_br.write("%s# Aquivo gerado em: %s \n\n" % (header, datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
             file_en_us.write("%s# File generated in: %s \n\n" % (header, datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
             for obj in Translation.objects.filter():
-                file_en_us.write('msgid "%s"\nmsgstr "%s"\n\n' % (obj.tag, obj.text_en))
-                file_pt_br.write('msgid "%s"\nmsgstr "%s"\n\n' % (obj.tag, obj.text_pt_br))
+                file_en_us.write('msgid "%s"\nmsgstr "%s"\n\n' % (obj.tag, obj.text_en.replace('"', '\\"')))
+                file_pt_br.write('msgid "%s"\nmsgstr "%s"\n\n' % (obj.tag, obj.text_pt_br.replace('"', '\\"')))
                 if obj.type.has_auxiliary_text:
-                    file_en_us.write('msgid "%s"\nmsgstr "%s"\n\n' % (obj.auxiliary_tag, obj.auxiliary_text_en))
-                    file_pt_br.write('msgid "%s"\nmsgstr "%s"\n\n' % (obj.auxiliary_tag, obj.auxiliary_text_pt_br))
+                    file_en_us.write('msgid "%s"\nmsgstr "%s"\n\n' % (obj.auxiliary_tag, obj.auxiliary_text_en.replace('"', '\\"')))
+                    file_pt_br.write('msgid "%s"\nmsgstr "%s"\n\n' % (obj.auxiliary_tag, obj.auxiliary_text_pt_br.replace('"', '\\"')))
         except Exception as error:
             file_en_us.close()
             file_pt_br.close()
