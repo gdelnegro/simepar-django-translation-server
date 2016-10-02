@@ -35,10 +35,10 @@ before_script:
   - psql -c "ALTER ROLE simepar_translation SET CLIENT_ENCODING = 'utf8';" -U postgres
   - psql -c "ALTER ROLE simepar_translation SET default_transaction_isolation TO 'read committed';" -U postgres
   - psql -c "ALTER ROLE simepar_translation SET timezone TO 'UTC';" -U postgres
-  - python manage.py migrate
+  - python src/manage.py migrate
 
 script:
-  - python manage.py runserver
+  - python src/manage.py runserver
 #  coverage run manage.py tests
 #  coverage run functional_tests.py
 
