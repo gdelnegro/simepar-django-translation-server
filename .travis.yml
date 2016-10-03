@@ -1,7 +1,6 @@
 language: python
 
 python:
-  - 3.3
   - 3.4
   - 3.5
 
@@ -44,15 +43,11 @@ script:
 #  coverage run functional_tests.py
 
 after_success:
-#- pip freeze
+  #- pip freeze
   - echo Uploading code coverage data ...; coveralls
-#- echo Code complexity scores:; radon cc --min B ../pony-forum
+  #- echo Code complexity scores:; radon cc --min B ../pony-forum
 
 #notifications:
 #  email:
 #    on_success: change
 #    on_failure: always
-
- matrix:
-   allow_failures:
-     - python: 3.3
