@@ -1,15 +1,16 @@
 language: python
 
 python:
-  - 3.3
   - 3.4
   - 3.5
+
+addons:
+  postgresql: "9.4"
 
 services: postgresql
 
 env:
   global:
-# - DJANGO="x.y.z"
   - DJANGO_SETTINGS_MODULE="django_simepar_translation_server.settings"
   - PYTHONPATH="/home/gdelnegro/projects/simepar/simepar-django-translation-server"
   - PIP_USE_MIRRORS=true
@@ -17,27 +18,36 @@ env:
 # - CFLAGS=-Qunused-arguments
 # - CPPFLAGS=-Qunused-arguments
 
+before_install:
+  - sudo apt-get install libjpeg-dev # install libjpeg extension
+  - sudo apt-get install python3-dev # install python3 header files and static library for Python 3
+  - sudo pip install --upgrade virtualenv # install or upgrade virtualenv
 install:
   - pip install -r requirements.txt
-  - pip install coveralls radon
+#  - pip install coveralls radon
 # - pip install pip-tools --quiet
 
 before_script:
-  - psql -c "CREATE DATABASE travisdb;" -U postgres
+  - psql -c "CREATE ROLE simepar_translation WITH LOGIN;" -U postgres
+  - psql -c "ALTER USER simepar_translation CREATEDB;" -U postgres
+  - psql -c "CREATE DATABASE simepar_translation WITH OWNER simepar_translation;" -U postgres
+  - psql -c "ALTER ROLE simepar_translation WITH PASSWORD 'simepar_translation';" -U postgres
+  - psql -c "ALTER ROLE simepar_translation SET CLIENT_ENCODING = 'utf8';" -U postgres
+  - psql -c "ALTER ROLE simepar_translation SET default_transaction_isolation TO 'read committed';" -U postgres
+  - psql -c "ALTER ROLE simepar_translation SET timezone TO 'UTC';" -U postgres
+  - python src/manage.py migrate
 
 script:
-  - sh build_forum.sh
+  - coverage run --source=src/. src/manage.py test translation_server
+#  coverage run manage.py tests
+#  coverage run functional_tests.py
 
 after_success:
-- pip freeze
-- echo Uploading code coverage data ...; coveralls
-#- echo Code complexity scores:; radon cc --min B ../pony-forum
+  #- pip freeze
+  - coveralls
+  #- echo Code complexity scores:; radon cc --min B ../pony-forum
 
 #notifications:
 #  email:
 #    on_success: change
 #    on_failure: always
-
-# matrix:
-#   allow_failures:
-#     - python: 3.3

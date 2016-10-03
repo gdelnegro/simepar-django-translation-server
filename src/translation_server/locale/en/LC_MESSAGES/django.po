@@ -1,0 +1,109 @@
+
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-05-19 14:44+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+# File generated in: 2016-10-02 19:21:28 
+
+msgid "MTA1"
+msgstr "Translation Type"
+
+msgid "MTP1"
+msgstr "Translation Types"
+
+msgid "MDL1"
+msgstr "Created at"
+
+msgid "TTP1"
+msgstr "Record creation date"
+
+msgid "MDL12"
+msgstr "Migration created"
+
+msgid "TTP12"
+msgstr "Migration created"
+
+msgid "MTA2"
+msgstr "Translation"
+
+msgid "MTP2"
+msgstr "Translations"
+
+msgid "ME1"
+msgstr "The auxiliary text must be different from the primary text"
+
+msgid "MDL5"
+msgstr "Has auxiliary text?"
+
+msgid "TTP5"
+msgstr "If the translation type have auxiliary text"
+
+msgid "MDL6"
+msgstr "Auxiliary text tag"
+
+msgid "TTP6"
+msgstr "The unique identifier prefix for auxiliary text"
+
+msgid "MDL2"
+msgstr "Updated at"
+
+msgid "TTP2"
+msgstr "Record update time"
+
+msgid "MDL3"
+msgstr "Tag"
+
+msgid "TTP3"
+msgstr "Unique identifier that will be used as prefix for the translations tag"
+
+msgid "MDL4"
+msgstr "Name"
+
+msgid "TTP4"
+msgstr "Record name"
+
+msgid "MDL8"
+msgstr "Tag"
+
+msgid "TTP8"
+msgstr "Unique identifier"
+
+msgid "MDL9"
+msgstr "Text"
+
+msgid "TTP9"
+msgstr "Translation text"
+
+msgid "MDL7"
+msgstr "Translation Type"
+
+msgid "TTP7"
+msgstr "Record translation type"
+
+msgid "MDL10"
+msgstr "Auxiliary tag"
+
+msgid "TTP10"
+msgstr "Auxiliary text unique identifier"
+
+msgid "MDL11"
+msgstr "Auxiliary text"
+
+msgid "TTP11"
+msgstr "Auxiliary text"
+
