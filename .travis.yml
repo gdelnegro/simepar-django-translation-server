@@ -24,8 +24,8 @@ before_install:
   - sudo pip install --upgrade virtualenv # install or upgrade virtualenv
 install:
   - pip install -r requirements.txt
-#  - pip install coveralls radon
-# - pip install pip-tools --quiet
+  - pip install coveralls radon
+  - pip install pip-tools --quiet
 
 before_script:
   - psql -c "CREATE ROLE simepar_translation WITH LOGIN;" -U postgres
