@@ -44,7 +44,7 @@ script:
 
 after_success:
   #- pip freeze
-  - echo Uploading code coverage data ...; coveralls
+  - coveralls
   #- echo Code complexity scores:; radon cc --min B ../pony-forum
 
 #notifications:
