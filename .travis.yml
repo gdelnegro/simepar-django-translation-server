@@ -30,6 +30,7 @@ install:
 
 before_script:
   - psql -c "CREATE ROLE simepar_translation WITH LOGIN;" -U postgres
+  - psql -c "ALTER USER simepar_translation CREATEDB;" -U postgres
   - psql -c "CREATE DATABASE simepar_translation WITH OWNER simepar_translation;" -U postgres
   - psql -c "ALTER ROLE simepar_translation WITH PASSWORD 'simepar_translation';" -U postgres
   - psql -c "ALTER ROLE simepar_translation SET CLIENT_ENCODING = 'utf8';" -U postgres
@@ -38,13 +39,13 @@ before_script:
   - python src/manage.py migrate
 
 script:
-  - python src/manage.py runserver
+  - coverage run --source=src/. src/manage.py test translation_server
 #  coverage run manage.py tests
 #  coverage run functional_tests.py
 
-#after_success:
+after_success:
 #- pip freeze
-#- echo Uploading code coverage data ...; coveralls
+  - echo Uploading code coverage data ...; coveralls
 #- echo Code complexity scores:; radon cc --min B ../pony-forum
 
 #notifications:

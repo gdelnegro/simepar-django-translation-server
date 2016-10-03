@@ -55,25 +55,28 @@ class LastTranslationTag(object):
         self.translation_tag = translation_tag
 
     def return_last_tag(self):
-        from django.db import connection
-        query = "SELECT tag FROM %(translation_table)s WHERE tag LIKE '%(translation_tag)s%%' ORDER BY NULLIF(regexp_replace(TAG, E'\\\\D', '', 'g'), '')::int DESC LIMIT 1" % {
-            'translation_tag': self.translation_tag,
-            'translation_table': Translation._meta.db_table
-        }
-        cursor = connection.cursor()
-        try:
-            cursor.execute(query)
-        except Exception as err:
-            raise err
-        else:
-            result = []
-            for row in cursor.fetchall():
-                result = row[0]
-            if result:
-                import re
-                tag = Translation.objects.get(tag=result)
-                return dict(result=dict(last_tag=result, last_id=re.findall("(\d+)", result)[0], type=tag.type.name,
-                                        has_auxiliary_text=tag.type.has_auxiliary_text,
-                                        auxiliary_tag=tag.type.auxiliary_tag, tag=tag.type.tag))
+        if self.translation_tag and len(self.translation_tag) > 0:
+            from django.db import connection
+            query = "SELECT tag FROM %(translation_table)s WHERE tag LIKE '%(translation_tag)s%%' ORDER BY NULLIF(regexp_replace(TAG, E'\\\\D', '', 'g'), '')::int DESC LIMIT 1" % {
+                'translation_tag': self.translation_tag,
+                'translation_table': Translation._meta.db_table
+            }
+            cursor = connection.cursor()
+            try:
+                cursor.execute(query)
+            except Exception as err:
+                raise err
             else:
-                return dict(result=dict())
+                result = []
+                for row in cursor.fetchall():
+                    result = row[0]
+                if result:
+                    import re
+                    tag = Translation.objects.get(tag=result)
+                    return dict(result=dict(last_tag=result, last_id=re.findall("(\d+)", result)[0], type=tag.type.name,
+                                            has_auxiliary_text=tag.type.has_auxiliary_text,
+                                            auxiliary_tag=tag.type.auxiliary_tag, tag=tag.type.tag))
+                else:
+                    return dict(result=dict())
+        else:
+            return dict(result=dict())
