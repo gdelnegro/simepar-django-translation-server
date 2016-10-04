@@ -13,7 +13,6 @@ from translation_server.models import Translation
 class Command(BaseCommand):
     help = "This command generates migrations for translations, based on the contents of 'Translation' model"
     app_name = None
-    languages_list = None
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     updated_translations = []
 
@@ -139,10 +138,8 @@ class Migration(migrations.Migration):
             return
 
     def add_arguments(self, parser):
-        parser.add_argument('languages_list', nargs='+', type=str)
         parser.add_argument('app_name', type=str)
 
     def handle(self, *args, **options):
-        self.languages_list = options['languages_list']
         self.app_name = options['app_name']
         self.__create_translation_migration()

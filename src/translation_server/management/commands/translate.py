@@ -30,7 +30,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         languages_list = [lang[0] for lang in settings.LANGUAGES]
-        call_command('make_translation_migrations', ",".join(languages_list), self.app_name)
+        call_command('make_translation_migrations', self.app_name)
         exit()
         call_command('migrate', self.app_name)
-        call_command('make_translation', copy=options['copy_to_project'], locales_dir=options['locales_dir'])
+        call_command('make_translation', ",".join(languages_list), copy=options['copy_to_project'], locales_dir=options['locales_dir'])
