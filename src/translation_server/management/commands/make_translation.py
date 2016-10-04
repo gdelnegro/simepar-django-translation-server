@@ -61,11 +61,18 @@ msgstr ""
             file_pt_br.close()
             return True
 
+    def add_arguments(self, parser):
+        parser.add_argument('languages_list', nargs='+', type=str)
+        parser.add_argument(
+            '--locales-dir',
+            action='store',
+            dest='locales_dir',
+            default="",
+            help="The locales dir to copy the translation files",
+        )
+
     def handle(self, *args, **options):
         if self.__create_translation_files():
             call_command('compilemessages')
-            # if options['copy']:
-            #     copy the translation file
-            #     pass
             # if options['locales_dir']:
             #     pass

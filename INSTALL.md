@@ -1,25 +1,14 @@
 # Dependencies
-PostgreSQL 9.5.x (https://www.postgresql.org/docs/9.5/static/tutorial-install.html)
-
-PostGIS 2.2.1 (http://postgis.net/install/)
-
 Python 3 (https://www.python.org/)
 
 Python Virtualenv (https://virtualenv.pypa.io/en/stable/installation/)
 
 Python pip (https://pip.pypa.io/en/stable/installing/)
 
-Libjpeg (http://libjpeg.sourceforge.net/)
+DjangoRestFramework (http://www.django-rest-framework.org/)
 
-Apache2 (https://httpd.apache.org)
+Django Model Translation (http://django-modeltranslation.readthedocs.io/en/latest/index.html#)
 
-Apache 2 mod_wsgi
-
-DjangoRestFramework
-
-Django Model Translation
-
-django-filter
 
 ##Project installation
 
