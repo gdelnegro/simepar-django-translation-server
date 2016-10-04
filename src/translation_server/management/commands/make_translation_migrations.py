@@ -85,6 +85,8 @@ class Migration(migrations.Migration):
                 value = getattr(translation, field)
                 if type(value) is str:
                     value = value.replace('"', '\\"') if len(value) > 0 else ""
+                if hasattr(value, 'tag'):
+                    value = value.tag
                 if field == 'migration_created':
                     value = True
                 fields_options[field] = value

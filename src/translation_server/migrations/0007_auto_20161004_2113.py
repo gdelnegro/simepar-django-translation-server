@@ -31,7 +31,7 @@ def clear_data(apps, schema_editor):
 
 
 def load_data(apps, schema_editor):
-    __load_data(apps=apps, type="MDL - Model", tag="MDL12", text="Migration created", text_en="Migration created", text_de="TestDe", text_pt_br="\"Migration\" criada", auxiliary_tag="TTP12", auxiliary_text="If this record migration was created", auxiliary_text_en="If this record migration was created", auxiliary_text_de="Test", auxiliary_text_pt_br="Se a migration desse registro foi criada", migration_created="False")
+    __load_data(apps=apps, tag="MDL12", text="Migration created", text_en="Migration created", text_de="TestDe", text_pt_br="\"Migration\" criada", auxiliary_tag="TTP12", auxiliary_text="If this record migration was created", auxiliary_text_en="If this record migration was created", auxiliary_text_de="Test", auxiliary_text_pt_br="Se a migration desse registro foi criada", migration_created="False")
 
 
 class Migration(migrations.Migration):
