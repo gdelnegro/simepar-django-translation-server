@@ -2,7 +2,6 @@
 # Created by Gustavo Del Negro <gustavodelnegro@gmail.com> on 10/1/16.
 import django
 from django.core.management import BaseCommand
-from django.conf import settings
 from django.apps import *
 from datetime import datetime
 from django.core.management import call_command
@@ -85,7 +84,7 @@ class Migration(migrations.Migration):
                 value = getattr(translation, field)
                 if type(value) is str:
                     value = value.replace('"', '\\"') if len(value) > 0 else ""
-                if hasattr(value, 'tag'):
+                if field == 'type':
                     value = value.tag
                 if field == 'migration_created':
                     value = True
@@ -130,12 +129,14 @@ class Migration(migrations.Migration):
             else:
                 os.remove(last_migration_file)
                 self.stdout.write(self.style.NOTICE("There was no new translations to make migrations"))
+                return
         except Exception as error:
             os.remove(last_migration_file)
             raise error
         else:
             self.__update_translation()
             self.stdout.write(self.style.SUCCESS("Translation migration file create successfully"))
+            return
 
     def add_arguments(self, parser):
         parser.add_argument('languages_list', nargs='+', type=str)
