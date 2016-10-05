@@ -18,40 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-# File generated in: 2016-10-05 00:52:27 
-
-msgid "MTA1"
-msgstr "Translation Type"
-
-msgid "MTP1"
-msgstr "Translation Types"
-
-msgid "MDL1"
-msgstr "Created at"
-
-msgid "TTP1"
-msgstr "Record creation date"
-
-msgid "MTA2"
-msgstr "Translation"
-
-msgid "MTP2"
-msgstr "Translations"
-
-msgid "ME1"
-msgstr "The auxiliary text must be different from the primary text"
-
-msgid "MDL5"
-msgstr "Has auxiliary text?"
-
-msgid "TTP5"
-msgstr "If the translation type have auxiliary text"
-
-msgid "MDL6"
-msgstr "Auxiliary text tag"
-
-msgid "TTP6"
-msgstr "The unique identifier prefix for auxiliary text"
+# File generated in: 2016-10-05 11:53:28 
 
 msgid "MDL2"
 msgstr "Updated at"
@@ -71,11 +38,29 @@ msgstr "Name"
 msgid "TTP4"
 msgstr "Record name"
 
-msgid "MDL12"
-msgstr "Migration created"
+msgid "MDL6"
+msgstr "Auxiliary text tag"
 
-msgid "TTP12"
-msgstr "If this record migration was created"
+msgid "TTP6"
+msgstr "The unique identifier prefix for auxiliary text"
+
+msgid "MDL5"
+msgstr "Has auxiliary text?"
+
+msgid "TTP5"
+msgstr "If the translation type have auxiliary text"
+
+msgid "MTA1"
+msgstr "Translation Type"
+
+msgid "MTP1"
+msgstr "Translation Types"
+
+msgid "MDL1"
+msgstr "Created at"
+
+msgid "TTP1"
+msgstr "Record creation date"
 
 msgid "MDL8"
 msgstr "Tag"
@@ -106,4 +91,19 @@ msgstr "Auxiliary text"
 
 msgid "TTP11"
 msgstr "Auxiliary text"
+
+msgid "MTA2"
+msgstr "Translation"
+
+msgid "MTP2"
+msgstr "Translations"
+
+msgid "ME1"
+msgstr "The auxiliary text must be different from the primary text"
+
+msgid "MDL12"
+msgstr "Migration created"
+
+msgid "TTP12"
+msgstr "If this record migration was created"
 

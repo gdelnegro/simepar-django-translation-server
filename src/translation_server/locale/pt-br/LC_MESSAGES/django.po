@@ -18,40 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-# File generated in: 2016-10-05 00:52:27 
-
-msgid "MTA1"
-msgstr "Tipo de tradução"
-
-msgid "MTP1"
-msgstr "Tipos de tradução"
-
-msgid "MDL1"
-msgstr "Criado em"
-
-msgid "TTP1"
-msgstr "Data de criação do registro"
-
-msgid "MTA2"
-msgstr "Tradução"
-
-msgid "MTP2"
-msgstr "Traduções"
-
-msgid "ME1"
-msgstr "O texto auxiliar deve ser diferente do texto principal"
-
-msgid "MDL5"
-msgstr "Tem texto auxiliar?"
-
-msgid "TTP5"
-msgstr "Se o tipo de tradução tem texto auxiliar"
-
-msgid "MDL6"
-msgstr "Tag do texto auxiliar"
-
-msgid "TTP6"
-msgstr "O prefixo para o  identificador único do texto auxiliar"
+# File generated in: 2016-10-05 11:53:28 
 
 msgid "MDL2"
 msgstr "Atualizado em"
@@ -71,11 +38,29 @@ msgstr "Nome"
 msgid "TTP4"
 msgstr "Nome do registro"
 
-msgid "MDL12"
-msgstr "\"Migration\" criada"
+msgid "MDL6"
+msgstr "Tag do texto auxiliar"
 
-msgid "TTP12"
-msgstr "Se a migration desse registro foi criada"
+msgid "TTP6"
+msgstr "O prefixo para o  identificador único do texto auxiliar"
+
+msgid "MDL5"
+msgstr "Tem texto auxiliar?"
+
+msgid "TTP5"
+msgstr "Se o tipo de tradução tem texto auxiliar"
+
+msgid "MTA1"
+msgstr "Tipo de tradução"
+
+msgid "MTP1"
+msgstr "Tipos de tradução"
+
+msgid "MDL1"
+msgstr "Criado em"
+
+msgid "TTP1"
+msgstr "Data de criação do registro"
 
 msgid "MDL8"
 msgstr "Tag"
@@ -106,4 +91,19 @@ msgstr "Texto auxiliar"
 
 msgid "TTP11"
 msgstr "Texto auxiliar"
+
+msgid "MTA2"
+msgstr "Tradução"
+
+msgid "MTP2"
+msgstr "Traduções"
+
+msgid "ME1"
+msgstr "O texto auxiliar deve ser diferente do texto principal"
+
+msgid "MDL12"
+msgstr "\"Migration\" criada"
+
+msgid "TTP12"
+msgstr "Se a migration desse registro foi criada"
 

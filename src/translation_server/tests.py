@@ -43,6 +43,9 @@ class TestLastTranslationTagModel(TestCase):
 class TestLastTranslationTagView(APITestCase):
 
     def test_post_with_id_in_url(self):
+        """
+        If the method if different from get, it should return error 405
+        """
         try:
             url = reverse('get_last_translation_tag', args=[TranslationType.objects.get(tag="MDL").id])
             print(url)
@@ -53,6 +56,9 @@ class TestLastTranslationTagView(APITestCase):
             self.assertEqual(response.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)
 
     def test_get_with_id_in_url(self):
+        """
+        If the 'tag' is an int, and present in the database, it should return an dict
+        """
         try:
             url = reverse('get_last_translation_tag', args=[TranslationType.objects.get(tag="MDL").id])
         except Exception as error:
@@ -63,6 +69,9 @@ class TestLastTranslationTagView(APITestCase):
             self.assertIn("last_id", response.data['result'])
 
     def test_get_with_empty_tag(self):
+        """
+        If the 'tag' is empty, it should raise a NoReverseMatch error
+        """
         reverse_error = False
         try:
             url = reverse('get_last_translation_tag', args=[""])
@@ -74,6 +83,9 @@ class TestLastTranslationTagView(APITestCase):
             self.assertTrue(reverse_error)
 
     def test_get_with_tag_equal_none(self):
+        """
+        If the 'tag' is None, it should return error 404
+        """
         reverse_error = False
         try:
             url = reverse('get_last_translation_tag', args=[None])
@@ -87,6 +99,9 @@ class TestLastTranslationTagView(APITestCase):
             self.assertFalse(reverse_error)
 
     def test_get_with_tag_that_exists(self):
+        """
+        If the 'tag' is present in the database, it should return an dict
+        """
         try:
             url = reverse('get_last_translation_tag', args=[TranslationType.objects.get(tag="MDL").tag])
         except Exception as error:
@@ -97,6 +112,9 @@ class TestLastTranslationTagView(APITestCase):
             self.assertIn("last_id", response.data['result'])
 
     def test_get_with_tag_that_does_not_exist(self):
+        """
+        If the 'tag' does not exists, it should return error 404
+        """
         try:
             url = reverse('get_last_translation_tag', args=["TEST"])
         except Exception as error:
@@ -108,6 +126,9 @@ class TestLastTranslationTagView(APITestCase):
 
 class TestTranslationTypeForm(TestCase):
     def translation_type_creation_without_auxiliary_tag(self):
+        """
+        the form must be valid without auxiliary tag fields
+        """
         fields_to_ignore = ['id', 'created_at', 'updated_at', 'translation_translation_type']
         model_fields = [field.name if field.name not in fields_to_ignore else None for field in
                         apps.get_model('translation_server', "TranslationType")._meta.get_fields()]
@@ -126,6 +147,9 @@ class TestTranslationTypeForm(TestCase):
         self.assertTrue(form.save())
 
     def translation_type_creation_with_auxiliary_tag(self):
+        """
+        the form must be valid with auxiliary tag fields
+        """
         fields_to_ignore = ['id', 'created_at', 'updated_at', 'translation_translation_type']
         model_fields = [field.name if field.name not in fields_to_ignore else None for field in
                         apps.get_model('translation_server', "TranslationType")._meta.get_fields()]
@@ -146,6 +170,9 @@ class TestTranslationTypeForm(TestCase):
 
 class TestTranslationForm(TestCase):
     def translation_MDL_creation(self):
+        """
+        the form must be valid with MDL translation type
+        """
         languages_list = [lang[0].replace('-', '_') for lang in settings.LANGUAGES]
         fields_to_ignore = ['id', 'created_at', 'updated_at', 'translation_translation_type']
         model_fields = [field.name if field.name not in fields_to_ignore else None for field in
@@ -174,6 +201,9 @@ class TestTranslationForm(TestCase):
         self.assertTrue(form.save())
 
     def translation_MTA_creation(self):
+        """
+        the form must be valid with MTA translation type
+        """
         languages_list = [lang[0].replace('-', '_') for lang in settings.LANGUAGES]
         fields_to_ignore = ['id', 'created_at', 'updated_at', 'translation_translation_type']
         model_fields = [field.name if field.name not in fields_to_ignore else None for field in
@@ -202,6 +232,9 @@ class TestTranslationForm(TestCase):
         self.assertTrue(form.save())
 
     def translation_ME_creation(self):
+        """
+        the form must be valid with ME translation type
+        """
         languages_list = [lang[0].replace('-', '_') for lang in settings.LANGUAGES]
         fields_to_ignore = ['id', 'created_at', 'updated_at', 'translation_translation_type']
         model_fields = [field.name if field.name not in fields_to_ignore else None for field in
@@ -230,6 +263,9 @@ class TestTranslationForm(TestCase):
         self.assertTrue(form.save())
 
     def translation_GEN_creation(self):
+        """
+        the form must be valid with GEN translation type
+        """
         languages_list = [lang[0].replace('-', '_') for lang in settings.LANGUAGES]
         fields_to_ignore = ['id', 'created_at', 'updated_at', 'translation_translation_type']
         model_fields = [field.name if field.name not in fields_to_ignore else None for field in
