@@ -11,15 +11,6 @@ class Command(BaseCommand):
     app_name = "translation_server"
 
     def add_arguments(self, parser):
-        # Named (optional) arguments
-        parser.add_argument(
-            '--copy',
-            action='store_true',
-            dest='copy_to_project',
-            default=False,
-            help="Copy the generated *.po and *.mo files to the project's translation dir",
-        )
-
         parser.add_argument(
             '--locales-dir',
             action='store',
@@ -31,6 +22,5 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         languages_list = [lang[0] for lang in settings.LANGUAGES]
         call_command('make_translation_migrations', self.app_name)
-        exit()
         call_command('migrate', self.app_name)
-        call_command('make_translation', ",".join(languages_list), copy=options['copy_to_project'], locales_dir=options['locales_dir'])
+        call_command('make_translation', ",".join(languages_list), locales_dir=options['locales_dir'])
