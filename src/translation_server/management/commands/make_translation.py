@@ -93,4 +93,7 @@ msgstr ""
         self.languages_list = options['languages_list'][0].split(',')
         self.locale_path = options['locales_dir'] if len(options['locales_dir']) > 1 else self.BASE_DIR
         if self.__create_translation_files():
-            call_command('compilemessages')
+            compile_options = {}
+            for lang in self.languages_list:
+                compile_options.update({'locale': lang})
+            call_command('compilemessages', options=compile_options)
