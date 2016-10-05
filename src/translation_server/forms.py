@@ -29,3 +29,9 @@ class TranslationAdminForm(forms.ModelForm):
     class Meta:
         model = Translation
         fields = "__all__"
+
+
+class TranslationTypeAdminForm(forms.ModelForm):
+    class Meta:
+        model = TranslationType
+        fields = "__all__"

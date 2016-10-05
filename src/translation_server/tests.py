@@ -5,6 +5,8 @@ from rest_framework import status
 from rest_framework.test import APITestCase
 from translation_server.models import *
 from django.urls.exceptions import NoReverseMatch
+from django.apps import *
+from translation_server.forms import *
 
 
 class TestLastTranslationTagModel(TestCase):
@@ -69,7 +71,7 @@ class TestLastTranslationTagView(APITestCase):
         except Exception as error:
             raise error
         else:
-            self.assertEqual(reverse_error, True)
+            self.assertTrue(reverse_error)
 
     def test_get_with_tag_equal_none(self):
         reverse_error = False
@@ -82,7 +84,7 @@ class TestLastTranslationTagView(APITestCase):
         else:
             response = self.client.get(url, format='json')
             self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
-            self.assertEqual(reverse_error, False)
+            self.assertFalse(reverse_error)
 
     def test_get_with_tag_that_exists(self):
         try:
@@ -102,3 +104,79 @@ class TestLastTranslationTagView(APITestCase):
         else:
             response = self.client.get(url, format='json')
             self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+
+
+class TestTranslationTypeForm(TestCase):
+    def translation_type_creation_without_auxiliary_tag(self):
+        fields_to_ignore = ['id', 'created_at', 'updated_at', 'translation_translation_type']
+        model_fields = [field.name if field.name not in fields_to_ignore else None for field in
+                        apps.get_model('translation_server', "TranslationType")._meta.get_fields()]
+        form_data = {}
+        for field in model_fields:
+            if field:
+                if field == 'has_auxiliary_text':
+                    value = False
+                if field == 'auxiliary_tag':
+                    value = ""
+                else:
+                    value = field.upper()
+                form_data.update({field: value})
+        form = TranslationTypeAdminForm(data=form_data)
+        self.assertTrue(form.is_valid())
+        self.assertTrue(form.save())
+
+    def translation_type_creation_with_auxiliary_tag(self):
+        fields_to_ignore = ['id', 'created_at', 'updated_at', 'translation_translation_type']
+        model_fields = [field.name if field.name not in fields_to_ignore else None for field in
+                        apps.get_model('translation_server', "TranslationType")._meta.get_fields()]
+        form_data = {}
+        for field in model_fields:
+            if field:
+                if field == 'has_auxiliary_text':
+                    value = True
+                if field == 'auxiliary_tag':
+                    value = "AUX"
+                else:
+                    value = field.upper()
+                form_data.update({field: value})
+        form = TranslationTypeAdminForm(data=form_data)
+        self.assertTrue(form.is_valid())
+        self.assertTrue(form.save())
+
+
+class TestTranslationForm(TestCase):
+    def translation_creation_without_auxiliary_tag(self):
+        fields_to_ignore = ['id', 'created_at', 'updated_at', 'translation_translation_type']
+        model_fields = [field.name if field.name not in fields_to_ignore else None for field in
+                        apps.get_model('translation_server', "TranslationType")._meta.get_fields()]
+        form_data = {}
+        for field in model_fields:
+            if field:
+                if field == 'has_auxiliary_text':
+                    value = False
+                if field == 'auxiliary_tag':
+                    value = ""
+                else:
+                    value = field.upper()
+                form_data.update({field: value})
+        form = TranslationTypeAdminForm(data=form_data)
+        self.assertTrue(form.is_valid())
+        self.assertTrue(form.save())
+
+    def translation_creation_with_auxiliary_tag(self):
+        fields_to_ignore = ['id', 'created_at', 'updated_at', 'translation_translation_type']
+        model_fields = [field.name if field.name not in fields_to_ignore else None for field in
+                        apps.get_model('translation_server', "TranslationType")._meta.get_fields()]
+        form_data = {}
+        for field in model_fields:
+            if field:
+                if field == 'has_auxiliary_text':
+                    value = True
+                if field == 'auxiliary_tag':
+                    value = "AUX"
+                else:
+                    value = field.upper()
+                form_data.update({field: value})
+        form = TranslationTypeAdminForm(data=form_data)
+        self.assertTrue(form.is_valid())
+        self.assertTrue(form.save())
