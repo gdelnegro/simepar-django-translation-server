@@ -21,89 +21,89 @@ msgstr ""
 # File generated in: 2016-10-05 00:15:56 
 
 msgid "MTA1"
-msgstr "Translation Type"
+msgstr ""
 
 msgid "MTP1"
-msgstr "Translation Types"
+msgstr ""
 
 msgid "MDL1"
-msgstr "Created at"
+msgstr ""
 
 msgid "TTP1"
-msgstr "Record creation date"
+msgstr ""
 
 msgid "MTA2"
-msgstr "Translation"
+msgstr ""
 
 msgid "MTP2"
-msgstr "Translations"
+msgstr ""
 
 msgid "ME1"
-msgstr "The auxiliary text must be different from the primary text"
+msgstr ""
 
 msgid "MDL5"
-msgstr "Has auxiliary text?"
+msgstr ""
 
 msgid "TTP5"
-msgstr "If the translation type have auxiliary text"
+msgstr ""
 
 msgid "MDL6"
-msgstr "Auxiliary text tag"
+msgstr ""
 
 msgid "TTP6"
-msgstr "The unique identifier prefix for auxiliary text"
+msgstr ""
 
 msgid "MDL2"
-msgstr "Updated at"
+msgstr ""
 
 msgid "TTP2"
-msgstr "Record update time"
+msgstr ""
 
 msgid "MDL3"
-msgstr "Tag"
+msgstr ""
 
 msgid "TTP3"
-msgstr "Unique identifier that will be used as prefix for the translations tag"
+msgstr ""
 
 msgid "MDL4"
-msgstr "Name"
+msgstr ""
 
 msgid "TTP4"
-msgstr "Record name"
+msgstr ""
 
 msgid "MDL12"
-msgstr "Migration created"
+msgstr "TestDesss"
 
 msgid "TTP12"
-msgstr "If this record migration was created"
+msgstr "Test"
 
 msgid "MDL8"
-msgstr "Tag"
+msgstr ""
 
 msgid "TTP8"
-msgstr "Unique identifier"
+msgstr ""
 
 msgid "MDL9"
-msgstr "Text"
+msgstr ""
 
 msgid "TTP9"
-msgstr "Translation text"
+msgstr ""
 
 msgid "MDL7"
-msgstr "Translation Type"
+msgstr ""
 
 msgid "TTP7"
-msgstr "Record translation type"
+msgstr ""
 
 msgid "MDL10"
-msgstr "Auxiliary tag"
+msgstr ""
 
 msgid "TTP10"
-msgstr "Auxiliary text unique identifier"
+msgstr ""
 
 msgid "MDL11"
-msgstr "Auxiliary text"
+msgstr ""
 
 msgid "TTP11"
-msgstr "Auxiliary text"
+msgstr ""
 

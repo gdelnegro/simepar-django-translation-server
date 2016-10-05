@@ -21,89 +21,89 @@ msgstr ""
 # File generated in: 2016-10-05 00:15:56 
 
 msgid "MTA1"
-msgstr "Translation Type"
+msgstr "Tipo de tradução"
 
 msgid "MTP1"
-msgstr "Translation Types"
+msgstr "Tipos de tradução"
 
 msgid "MDL1"
-msgstr "Created at"
+msgstr "Criado em"
 
 msgid "TTP1"
-msgstr "Record creation date"
+msgstr "Data de criação do registro"
 
 msgid "MTA2"
-msgstr "Translation"
+msgstr "Tradução"
 
 msgid "MTP2"
-msgstr "Translations"
+msgstr "Traduções"
 
 msgid "ME1"
-msgstr "The auxiliary text must be different from the primary text"
+msgstr "O texto auxiliar deve ser diferente do texto principal"
 
 msgid "MDL5"
-msgstr "Has auxiliary text?"
+msgstr "Tem texto auxiliar?"
 
 msgid "TTP5"
-msgstr "If the translation type have auxiliary text"
+msgstr "Se o tipo de tradução tem texto auxiliar"
 
 msgid "MDL6"
-msgstr "Auxiliary text tag"
+msgstr "Tag do texto auxiliar"
 
 msgid "TTP6"
-msgstr "The unique identifier prefix for auxiliary text"
+msgstr "O prefixo para o  identificador único do texto auxiliar"
 
 msgid "MDL2"
-msgstr "Updated at"
+msgstr "Atualizado em"
 
 msgid "TTP2"
-msgstr "Record update time"
+msgstr "Data de atualização do registro"
 
 msgid "MDL3"
 msgstr "Tag"
 
 msgid "TTP3"
-msgstr "Unique identifier that will be used as prefix for the translations tag"
+msgstr "Identificador único que será usado como prefixo da tag das traduções"
 
 msgid "MDL4"
-msgstr "Name"
+msgstr "Nome"
 
 msgid "TTP4"
-msgstr "Record name"
+msgstr "Nome do registro"
 
 msgid "MDL12"
-msgstr "Migration created"
+msgstr "\"Migration\" criada"
 
 msgid "TTP12"
-msgstr "If this record migration was created"
+msgstr "Se a migration desse registro foi criada"
 
 msgid "MDL8"
 msgstr "Tag"
 
 msgid "TTP8"
-msgstr "Unique identifier"
+msgstr "Identificador único"
 
 msgid "MDL9"
-msgstr "Text"
+msgstr "Texto"
 
 msgid "TTP9"
-msgstr "Translation text"
+msgstr "Texto da tradução"
 
 msgid "MDL7"
-msgstr "Translation Type"
+msgstr "Tipo de tradução"
 
 msgid "TTP7"
-msgstr "Record translation type"
+msgstr "Tipo de tradução do registro"
 
 msgid "MDL10"
-msgstr "Auxiliary tag"
+msgstr "Tag auxiliar"
 
 msgid "TTP10"
-msgstr "Auxiliary text unique identifier"
+msgstr "Identificador único do texto auxiliar"
 
 msgid "MDL11"
-msgstr "Auxiliary text"
+msgstr "Texto auxiliar"
 
 msgid "TTP11"
-msgstr "Auxiliary text"
+msgstr "Texto auxiliar"
 

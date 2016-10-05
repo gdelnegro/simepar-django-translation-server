@@ -4,7 +4,6 @@ from django import forms
 from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
 from translation_server.models import *
-from django.apps import *
 
 
 class TranslationAdminForm(forms.ModelForm):
@@ -16,7 +15,7 @@ class TranslationAdminForm(forms.ModelForm):
         for language in self.languages_list:
             if cleaned_data.get("text_"+language) == cleaned_data.get('auxiliary_text_'+language):
                 self.add_error('auxiliary_text_' + language,
-                               forms.ValidationError('The auxiliary text must be different from the primary text'))
+                               forms.ValidationError(_('ME1')))
 
         return cleaned_data
 

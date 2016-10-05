@@ -9,18 +9,26 @@ import os
 
 class Command(BaseCommand):
     help = "This command generates the translation files, based on the contents of 'Translation' model"
+    languages_list = None
+    locale_path = None
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__)) + "/../../locale"
+    file_map = {}
 
-    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    def __create_translation_dirs(self):
+        for language in self.languages_list:
+            call_command('makemessages', '-l', language)
 
     def __create_translation_files(self):
-        dir_en_us = self.BASE_DIR + '/../../locale/en/LC_MESSAGES/'
-        dir_pt_br = self.BASE_DIR + '/../../locale/pt_BR/LC_MESSAGES/'
-        if not os.path.exists(dir_en_us):
-            os.makedirs(dir_en_us)
-        if not os.path.exists(dir_pt_br):
-            os.makedirs(dir_pt_br)
-        file_en_us = open(dir_en_us + "django.po", "w+")
-        file_pt_br = open(dir_pt_br + "django.po", "w+")
+        self.__create_translation_dirs()
+        for language in self.languages_list:
+            self.file_map.update(
+                {
+                    language: {
+                        'dir': self.locale_path + "/" + language + "/LC_MESSAGES/",
+                        'file': open(self.locale_path + "/" + language + "/LC_MESSAGES/django.po", "w")
+                    }
+                }
+            )
         header = """
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
@@ -42,24 +50,34 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\\n"
 """
-
-        try:
-            file_pt_br.write("%s# Aquivo gerado em: %s \n\n" % (header, datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
-            file_en_us.write("%s# File generated in: %s \n\n" % (header, datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
-            for obj in Translation.objects.filter():
-                file_en_us.write('msgid "%s"\nmsgstr "%s"\n\n' % (obj.tag, obj.text_en.replace('"', '\\"')))
-                file_pt_br.write('msgid "%s"\nmsgstr "%s"\n\n' % (obj.tag, obj.text_pt_br.replace('"', '\\"')))
-                if obj.type.has_auxiliary_text:
-                    file_en_us.write('msgid "%s"\nmsgstr "%s"\n\n' % (obj.auxiliary_tag, obj.auxiliary_text_en.replace('"', '\\"')))
-                    file_pt_br.write('msgid "%s"\nmsgstr "%s"\n\n' % (obj.auxiliary_tag, obj.auxiliary_text_pt_br.replace('"', '\\"')))
-        except Exception as error:
-            file_en_us.close()
-            file_pt_br.close()
-            raise error
-        else:
-            file_en_us.close()
-            file_pt_br.close()
-            return True
+        translations = Translation.objects.filter()
+        for language in self.file_map:
+            try:
+                self.file_map[language]['file'].write(
+                    "%s# File generated in: %s \n\n" % (header, datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+                )
+                for translation in translations:
+                    text = getattr(translation, "text_"+language.replace("-", "_"))
+                    self.file_map[language]['file'].write(
+                        'msgid "%(tag)s"\nmsgstr "%(text)s"\n\n' % {
+                            'tag': translation.tag,
+                            'text': text.replace('"', '\\"') if text else ""
+                        }
+                    )
+                    if translation.auxiliary_tag:
+                        auxiliary_text = getattr(translation, "auxiliary_text_" + language.replace("-", "_"))
+                        self.file_map[language]['file'].write(
+                            'msgid "%(tag)s"\nmsgstr "%(text)s"\n\n' % {
+                                'tag': translation.auxiliary_tag,
+                                'text': auxiliary_text.replace('"', '\\"') if auxiliary_text else ""
+                            }
+                        )
+            except Exception as error:
+                self.file_map[language]['file'].close()
+                raise error
+            else:
+                self.file_map[language]['file'].close()
+        return True
 
     def add_arguments(self, parser):
         parser.add_argument('languages_list', nargs='+', type=str)
@@ -68,11 +86,11 @@ msgstr ""
             action='store',
             dest='locales_dir',
             default="",
-            help="The locales dir to copy the translation files",
+            help="The locales dir to store/write the *.po files",
         )
 
     def handle(self, *args, **options):
+        self.languages_list = options['languages_list'][0].split(',')
+        self.locale_path = options['locales_dir'] if len(options['locales_dir']) > 1 else self.BASE_DIR
         if self.__create_translation_files():
             call_command('compilemessages')
-            # if options['locales_dir']:
-            #     pass
