@@ -2,21 +2,20 @@
 # Created by Gustavo Del Negro <gustavodelnegro@gmail.com> on 9/30/16.
 from django import forms
 from django.utils.translation import ugettext_lazy as _
+from django.conf import settings
 from translation_server.models import *
 
 
 class TranslationAdminForm(forms.ModelForm):
+    languages_list = [lang[0].replace('-', '_') for lang in settings.LANGUAGES]
+
     def clean(self):
         cleaned_data = super(TranslationAdminForm, self).clean()
-        auxiliary_text_en = cleaned_data.get("auxiliary_text_en")
-        primary_text_en = cleaned_data.get("text_en")
-        auxiliary_text_pt_br = cleaned_data.get("auxiliary_text_pt_br")
-        primary_text_pt_br = cleaned_data.get("text_pt_br")
 
-        if auxiliary_text_en == primary_text_en:
-            self.add_error('auxiliary_text_en', forms.ValidationError(_('ME1'), code='identical_texts_en'))
-        if auxiliary_text_pt_br == primary_text_pt_br:
-            self.add_error('auxiliary_text_pt_br', forms.ValidationError(_('ME1'), code='identical_texts_pt_br'))
+        for language in self.languages_list:
+            if cleaned_data.get("text_"+language) == cleaned_data.get('auxiliary_text_'+language):
+                self.add_error('auxiliary_text_' + language,
+                               forms.ValidationError(_('ME1')))
 
         return cleaned_data
 
@@ -29,4 +28,10 @@ class TranslationAdminForm(forms.ModelForm):
 
     class Meta:
         model = Translation
+        fields = "__all__"
+
+
+class TranslationTypeAdminForm(forms.ModelForm):
+    class Meta:
+        model = TranslationType
         fields = "__all__"

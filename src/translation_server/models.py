@@ -8,7 +8,8 @@ class TranslationType(models.Model):
     tag = models.CharField(_('MDL3'), help_text=_('TTP3'), max_length=20, unique=True)
     name = models.TextField(_('MDL4'), help_text=_('TTP4'))
     has_auxiliary_text = models.BooleanField(_('MDL5'), help_text=_('TTP5'), default=True)
-    auxiliary_tag = models.CharField(_('MDL6'), help_text=_('TTP6'), max_length=20, unique=True)
+    auxiliary_tag = models.CharField(_('MDL6'), help_text=_('TTP6'), max_length=20, unique=True, blank=True,
+                                     default=False)
 
     class Meta:
         verbose_name = _('MTA1')
