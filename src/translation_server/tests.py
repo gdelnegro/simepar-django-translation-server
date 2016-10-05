@@ -145,38 +145,114 @@ class TestTranslationTypeForm(TestCase):
 
 
 class TestTranslationForm(TestCase):
-    def translation_creation_without_auxiliary_tag(self):
+    def translation_MDL_creation(self):
+        languages_list = [lang[0].replace('-', '_') for lang in settings.LANGUAGES]
         fields_to_ignore = ['id', 'created_at', 'updated_at', 'translation_translation_type']
         model_fields = [field.name if field.name not in fields_to_ignore else None for field in
-                        apps.get_model('translation_server', "TranslationType")._meta.get_fields()]
+                        apps.get_model('translation_server', "Translation")._meta.get_fields()]
         form_data = {}
+        translation_type_object = TranslationType.objects.get(tag="MDL")
+        for language in languages_list:
+            form_data.update({"text_"+language: "TEST"})
+            if translation_type_object.has_auxiliary_text:
+                form_data.update({"auxiliary_text_" + language: "TEST"})
+        model_fields.pop(model_fields.index("text"))
+        model_fields.pop(model_fields.index("auxiliary_text"))
         for field in model_fields:
             if field:
-                if field == 'has_auxiliary_text':
-                    value = False
-                if field == 'auxiliary_tag':
-                    value = ""
+                if field == "type":
+                    value = translation_type_object
+                if field == 'tag':
+                    value = translation_type_object.tag + 1
+                if field == "auxiliary_tag":
+                    value = translation_type_object.auxiliary_tag + 1 if translation_type_object.has_auxiliary_text else ""
                 else:
                     value = field.upper()
                 form_data.update({field: value})
-        form = TranslationTypeAdminForm(data=form_data)
+        form = TranslationAdminForm(data=form_data)
         self.assertTrue(form.is_valid())
         self.assertTrue(form.save())
 
-    def translation_creation_with_auxiliary_tag(self):
+    def translation_MTA_creation(self):
+        languages_list = [lang[0].replace('-', '_') for lang in settings.LANGUAGES]
         fields_to_ignore = ['id', 'created_at', 'updated_at', 'translation_translation_type']
         model_fields = [field.name if field.name not in fields_to_ignore else None for field in
-                        apps.get_model('translation_server', "TranslationType")._meta.get_fields()]
+                        apps.get_model('translation_server', "Translation")._meta.get_fields()]
         form_data = {}
+        translation_type_object = TranslationType.objects.get(tag="MTA")
+        for language in languages_list:
+            form_data.update({"text_" + language: "TEST"})
+            if translation_type_object.has_auxiliary_text:
+                form_data.update({"auxiliary_text_" + language: "TEST"})
+        model_fields.pop(model_fields.index("text"))
+        model_fields.pop(model_fields.index("auxiliary_text"))
         for field in model_fields:
             if field:
-                if field == 'has_auxiliary_text':
-                    value = True
-                if field == 'auxiliary_tag':
-                    value = "AUX"
+                if field == "type":
+                    value = translation_type_object
+                if field == 'tag':
+                    value = translation_type_object.tag + 1
+                if field == "auxiliary_tag":
+                    value = translation_type_object.auxiliary_tag + 1 if translation_type_object.has_auxiliary_text else ""
                 else:
                     value = field.upper()
                 form_data.update({field: value})
-        form = TranslationTypeAdminForm(data=form_data)
+        form = TranslationAdminForm(data=form_data)
+        self.assertTrue(form.is_valid())
+        self.assertTrue(form.save())
+
+    def translation_ME_creation(self):
+        languages_list = [lang[0].replace('-', '_') for lang in settings.LANGUAGES]
+        fields_to_ignore = ['id', 'created_at', 'updated_at', 'translation_translation_type']
+        model_fields = [field.name if field.name not in fields_to_ignore else None for field in
+                        apps.get_model('translation_server', "Translation")._meta.get_fields()]
+        form_data = {}
+        translation_type_object = TranslationType.objects.get(tag="ME")
+        for language in languages_list:
+            form_data.update({"text_" + language: "TEST"})
+            if translation_type_object.has_auxiliary_text:
+                form_data.update({"auxiliary_text_" + language: "TEST"})
+        model_fields.pop(model_fields.index("text"))
+        model_fields.pop(model_fields.index("auxiliary_text"))
+        for field in model_fields:
+            if field:
+                if field == "type":
+                    value = translation_type_object
+                if field == 'tag':
+                    value = translation_type_object.tag + 1
+                if field == "auxiliary_tag":
+                    value = translation_type_object.auxiliary_tag + 1 if translation_type_object.has_auxiliary_text else ""
+                else:
+                    value = field.upper()
+                form_data.update({field: value})
+        form = TranslationAdminForm(data=form_data)
+        self.assertTrue(form.is_valid())
+        self.assertTrue(form.save())
+
+    def translation_GEN_creation(self):
+        languages_list = [lang[0].replace('-', '_') for lang in settings.LANGUAGES]
+        fields_to_ignore = ['id', 'created_at', 'updated_at', 'translation_translation_type']
+        model_fields = [field.name if field.name not in fields_to_ignore else None for field in
+                        apps.get_model('translation_server', "Translation")._meta.get_fields()]
+        form_data = {}
+        translation_type_object = TranslationType.objects.get(tag="GEN")
+        for language in languages_list:
+            form_data.update({"text_" + language: "TEST"})
+            if translation_type_object.has_auxiliary_text:
+                form_data.update({"auxiliary_text_" + language: "TEST"})
+        model_fields.pop(model_fields.index("text"))
+        model_fields.pop(model_fields.index("auxiliary_text"))
+        for field in model_fields:
+            if field:
+                if field == "type":
+                    value = translation_type_object
+                if field == 'tag':
+                    value = translation_type_object.tag + 1
+                if field == "auxiliary_tag":
+                    value = translation_type_object.auxiliary_tag + 1 if translation_type_object.has_auxiliary_text else ""
+                else:
+                    value = field.upper()
+                form_data.update({field: value})
+        form = TranslationAdminForm(data=form_data)
         self.assertTrue(form.is_valid())
         self.assertTrue(form.save())
