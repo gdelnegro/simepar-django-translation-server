@@ -45,6 +45,7 @@ script:
 after_success:
   #- pip freeze
   - coveralls
+  - bash <(curl -s https://codecov.io/bash)
   #- echo Code complexity scores:; radon cc --min B ../pony-forum
 
 #notifications:
