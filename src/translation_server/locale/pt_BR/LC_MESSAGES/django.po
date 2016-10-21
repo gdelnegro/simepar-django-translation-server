@@ -18,92 +18,92 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-# Aquivo gerado em: 2016-10-02 19:21:28 
+# File generated in: 2016-10-21 13:06:59 
 
-msgid "MTA1"
-msgstr "Tipo de tradução"
-
-msgid "MTP1"
-msgstr "Tipos de tradução"
-
-msgid "MDL1"
-msgstr "Criado em"
-
-msgid "TTP1"
-msgstr "Data de criação do registro"
-
-msgid "MDL12"
-msgstr "\"Migration\" criada"
-
-msgid "TTP12"
-msgstr "\"Migration\" criada"
-
-msgid "MTA2"
-msgstr "Tradução"
-
-msgid "MTP2"
-msgstr "Traduções"
-
-msgid "ME1"
-msgstr "O texto auxiliar deve ser diferente do texto principal"
-
-msgid "MDL5"
+msgid "DTSM5"
 msgstr "Tem texto auxiliar?"
 
-msgid "TTP5"
+msgid "DTST5"
 msgstr "Se o tipo de tradução tem texto auxiliar"
 
-msgid "MDL6"
-msgstr "Tag do texto auxiliar"
+msgid "DTSMT2"
+msgstr "Tradução"
 
-msgid "TTP6"
-msgstr "O prefixo para o  identificador único do texto auxiliar"
+msgid "DTSMTP2"
+msgstr "Traduções"
 
-msgid "MDL2"
-msgstr "Atualizado em"
+msgid "DTSE1"
+msgstr "O texto auxiliar deve ser diferente do texto principal"
 
-msgid "TTP2"
-msgstr "Data de atualização do registro"
+msgid "DTSM12"
+msgstr "\"Migration\" criada"
 
-msgid "MDL3"
-msgstr "Tag"
+msgid "DTST12"
+msgstr "Se a migration desse registro foi criada"
 
-msgid "TTP3"
-msgstr "Identificador único que será usado como prefixo da tag das traduções"
-
-msgid "MDL4"
-msgstr "Nome"
-
-msgid "TTP4"
-msgstr "Nome do registro"
-
-msgid "MDL8"
-msgstr "Tag"
-
-msgid "TTP8"
-msgstr "Identificador único"
-
-msgid "MDL9"
-msgstr "Texto"
-
-msgid "TTP9"
-msgstr "Texto da tradução"
-
-msgid "MDL7"
+msgid "DTSMT1"
 msgstr "Tipo de tradução"
 
-msgid "TTP7"
+msgid "DTSMTP1"
+msgstr "Tipos de tradução"
+
+msgid "DTSM1"
+msgstr "Criado em"
+
+msgid "DTST1"
+msgstr "Data de criação do registro"
+
+msgid "DTSM8"
+msgstr "Tag"
+
+msgid "DTST8"
+msgstr "Identificador único"
+
+msgid "DTSM9"
+msgstr "Texto"
+
+msgid "DTST9"
+msgstr "Texto da tradução"
+
+msgid "DTSM7"
+msgstr "Tipo de tradução"
+
+msgid "DTST7"
 msgstr "Tipo de tradução do registro"
 
-msgid "MDL10"
+msgid "DTSM10"
 msgstr "Tag auxiliar"
 
-msgid "TTP10"
+msgid "DTST10"
 msgstr "Identificador único do texto auxiliar"
 
-msgid "MDL11"
+msgid "DTSM11"
 msgstr "Texto auxiliar"
 
-msgid "TTP11"
+msgid "DTST11"
 msgstr "Texto auxiliar"
+
+msgid "DTSM2"
+msgstr "Atualizado em"
+
+msgid "DTST2"
+msgstr "Data de atualização do registro"
+
+msgid "DTSM3"
+msgstr "Tag"
+
+msgid "DTST3"
+msgstr "Identificador único que será usado como prefixo da tag das traduções"
+
+msgid "DTSM4"
+msgstr "Nome"
+
+msgid "DTST4"
+msgstr "Nome do registro"
+
+msgid "DTSM6"
+msgstr "Tag do texto auxiliar"
+
+msgid "DTST6"
+msgstr "O prefixo para o  identificador único do texto auxiliar"
 

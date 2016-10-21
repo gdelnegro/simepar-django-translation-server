@@ -18,92 +18,92 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-# File generated in: 2016-10-13 02:24:32 
+# File generated in: 2016-10-21 13:06:59 
 
-msgid "MDL2"
-msgstr "Updated at"
-
-msgid "TTP2"
-msgstr "Record update time"
-
-msgid "MDL3"
-msgstr "Tag"
-
-msgid "TTP3"
-msgstr "Unique identifier that will be used as prefix for the translations tag"
-
-msgid "MDL4"
-msgstr "Name"
-
-msgid "TTP4"
-msgstr "Record name"
-
-msgid "MDL6"
-msgstr "Auxiliary text tag"
-
-msgid "TTP6"
-msgstr "The unique identifier prefix for auxiliary text"
-
-msgid "MDL5"
+msgid "DTSM5"
 msgstr "Has auxiliary text?"
 
-msgid "TTP5"
+msgid "DTST5"
 msgstr "If the translation type have auxiliary text"
 
-msgid "MTA1"
-msgstr "Translation Type"
-
-msgid "MTP1"
-msgstr "Translation Types"
-
-msgid "MDL1"
-msgstr "Created at"
-
-msgid "TTP1"
-msgstr "Record creation date"
-
-msgid "MDL8"
-msgstr "Tag"
-
-msgid "TTP8"
-msgstr "Unique identifier"
-
-msgid "MDL9"
-msgstr "Text"
-
-msgid "TTP9"
-msgstr "Translation text"
-
-msgid "MDL7"
-msgstr "Translation Type"
-
-msgid "TTP7"
-msgstr "Record translation type"
-
-msgid "MDL10"
-msgstr "Auxiliary tag"
-
-msgid "TTP10"
-msgstr "Auxiliary text unique identifier"
-
-msgid "MDL11"
-msgstr "Auxiliary text"
-
-msgid "TTP11"
-msgstr "Auxiliary text"
-
-msgid "MTA2"
+msgid "DTSMT2"
 msgstr "Translation"
 
-msgid "MTP2"
+msgid "DTSMTP2"
 msgstr "Translations"
 
-msgid "ME1"
+msgid "DTSE1"
 msgstr "The auxiliary text must be different from the primary text"
 
-msgid "MDL12"
+msgid "DTSM12"
 msgstr "Migration created"
 
-msgid "TTP12"
+msgid "DTST12"
 msgstr "If this record migration was created"
+
+msgid "DTSMT1"
+msgstr "Translation Type"
+
+msgid "DTSMTP1"
+msgstr "Translation Types"
+
+msgid "DTSM1"
+msgstr "Created at"
+
+msgid "DTST1"
+msgstr "Record creation date"
+
+msgid "DTSM8"
+msgstr "Tag"
+
+msgid "DTST8"
+msgstr "Unique identifier"
+
+msgid "DTSM9"
+msgstr "Text"
+
+msgid "DTST9"
+msgstr "Translation text"
+
+msgid "DTSM7"
+msgstr "Translation Type"
+
+msgid "DTST7"
+msgstr "Record translation type"
+
+msgid "DTSM10"
+msgstr "Auxiliary tag"
+
+msgid "DTST10"
+msgstr "Auxiliary text unique identifier"
+
+msgid "DTSM11"
+msgstr "Auxiliary text"
+
+msgid "DTST11"
+msgstr "Auxiliary text"
+
+msgid "DTSM2"
+msgstr "Updated at"
+
+msgid "DTST2"
+msgstr "Record update time"
+
+msgid "DTSM3"
+msgstr "Tag"
+
+msgid "DTST3"
+msgstr "Unique identifier that will be used as prefix for the translations tag"
+
+msgid "DTSM4"
+msgstr "Name"
+
+msgid "DTST4"
+msgstr "Record name"
+
+msgid "DTSM6"
+msgstr "Auxiliary text tag"
+
+msgid "DTST6"
+msgstr "The unique identifier prefix for auxiliary text"
 

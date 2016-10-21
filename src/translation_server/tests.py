@@ -29,14 +29,14 @@ class TestLastTranslationTagModel(TestCase):
         """
          If the tag exists, it should return a dict with the key last_id
         """
-        last_translation = LastTranslationTag('MDL1')
+        last_translation = LastTranslationTag('DTSM1')
         self.assertIn('last_id', last_translation.return_last_tag()['result'])
 
     def test_translation_tag_does_not_exists(self):
         """
          If the tag does not exists, it should return an empty dict
         """
-        last_translation = LastTranslationTag('MDL66')
+        last_translation = LastTranslationTag('DTSM66')
         self.assertNotIn('last_id', last_translation.return_last_tag()['result'])
 
 
@@ -47,7 +47,7 @@ class TestLastTranslationTagView(APITestCase):
         If the method if different from get, it should return error 405
         """
         try:
-            url = reverse('get_last_translation_tag', args=[TranslationType.objects.get(tag="MDL").id])
+            url = reverse('get_last_translation_tag', args=[TranslationType.objects.get(tag="DTSM").id])
             print(url)
         except Exception as error:
             raise error
@@ -60,7 +60,7 @@ class TestLastTranslationTagView(APITestCase):
         If the 'tag' is an int, and present in the database, it should return an dict
         """
         try:
-            url = reverse('get_last_translation_tag', args=[TranslationType.objects.get(tag="MDL").id])
+            url = reverse('get_last_translation_tag', args=[TranslationType.objects.get(tag="DTSM").id])
         except Exception as error:
             raise error
         else:
@@ -103,7 +103,7 @@ class TestLastTranslationTagView(APITestCase):
         If the 'tag' is present in the database, it should return an dict
         """
         try:
-            url = reverse('get_last_translation_tag', args=[TranslationType.objects.get(tag="MDL").tag])
+            url = reverse('get_last_translation_tag', args=[TranslationType.objects.get(tag="DTSM").tag])
         except Exception as error:
             raise error
         else:
@@ -195,38 +195,38 @@ class TestTranslationForm(TestCase):
                 form_data.update({field: value})
         return form_data
 
-    def translation_MDL_creation(self):
+    def translation_DTSM_creation(self):
         """
-        the form must be valid with MDL translation type
+        the form must be valid with DTSM translation type
         """
-        form_data = self.make_form_data("MDL")
+        form_data = self.make_form_data("DTSM")
         form = TranslationAdminForm(data=form_data)
         self.assertTrue(form.is_valid())
         self.assertTrue(form.save())
 
-    def translation_MTA_creation(self):
+    def translation_DTSMT_creation(self):
         """
-        the form must be valid with MTA translation type
+        the form must be valid with DTSMT translation type
         """
-        form_data = self.make_form_data("MTA")
+        form_data = self.make_form_data("DTSMT")
         form = TranslationAdminForm(data=form_data)
         self.assertTrue(form.is_valid())
         self.assertTrue(form.save())
 
-    def translation_ME_creation(self):
+    def translation_DTSE_creation(self):
         """
-        the form must be valid with ME translation type
+        the form must be valid with DTSE translation type
         """
-        form_data = self.make_form_data("ME")
+        form_data = self.make_form_data("DTSE")
         form = TranslationAdminForm(data=form_data)
         self.assertTrue(form.is_valid())
         self.assertTrue(form.save())
 
-    def translation_GEN_creation(self):
+    def translation_DTSG_creation(self):
         """
-        the form must be valid with GEN translation type
+        the form must be valid with DTSG translation type
         """
-        form_data = self.make_form_data("GEN")
+        form_data = self.make_form_data("DTSG")
         form = TranslationAdminForm(data=form_data)
         self.assertTrue(form.is_valid())
         self.assertTrue(form.save())
