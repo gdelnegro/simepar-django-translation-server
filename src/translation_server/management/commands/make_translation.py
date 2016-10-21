@@ -20,7 +20,8 @@ class Command(BaseCommand):
             os.makedirs(self.locale_path)
         for language in self.languages_list:
             # call_command('makemessages', '-l', language)
-            os.makedirs(self.locale_path+"/"+to_locale(language)+"/LC_MESSAGES")
+            if not os.path.exists(self.locale_path+"/"+to_locale(language)+"/LC_MESSAGES"):
+                os.makedirs(self.locale_path+"/"+to_locale(language)+"/LC_MESSAGES")
 
     def __create_translation_files(self):
         self.__create_translation_dirs()

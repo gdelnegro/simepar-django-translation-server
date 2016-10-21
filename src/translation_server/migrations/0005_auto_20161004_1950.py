@@ -15,16 +15,16 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='translation',
             name='auxiliary_text_de',
-            field=models.TextField(blank=True, help_text='TTP11', null=True, verbose_name='MDL11'),
+            field=models.TextField(blank=True, help_text='DTST11', null=True, verbose_name='DTSM11'),
         ),
         migrations.AddField(
             model_name='translation',
             name='text_de',
-            field=models.TextField(help_text='TTP9', null=True, verbose_name='MDL9'),
+            field=models.TextField(help_text='DTST9', null=True, verbose_name='DTSM9'),
         ),
         migrations.AddField(
             model_name='translationtype',
             name='name_de',
-            field=models.TextField(help_text='TTP4', null=True, verbose_name='MDL4'),
+            field=models.TextField(help_text='DTST4', null=True, verbose_name='DTSM4'),
         ),
     ]

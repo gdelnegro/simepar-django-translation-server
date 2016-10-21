@@ -15,6 +15,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='translationtype',
             name='auxiliary_tag',
-            field=models.CharField(blank=True, default=False, help_text='TTP6', max_length=20, unique=True, verbose_name='MDL6'),
+            field=models.CharField(blank=True, default=False, help_text='DTST6', max_length=20, unique=True, verbose_name='DTSM6'),
         ),
     ]

@@ -27,11 +27,11 @@ def __load_data(**kwargs):
 
 def clear_data(apps, schema_editor):
     model = apps.get_model("translation_server", "Translation")
-    model.objects.filter(tag__in=["MDL12"]).delete()
+    model.objects.filter(tag__in=["DTSM12"]).delete()
 
 
 def load_data(apps, schema_editor):
-    __load_data(apps=apps, type="DTSM", tag="MDL12", text="Migration created", text_en="Migration created", text_de="TestDesss", text_pt_br="\"Migration\" criada", auxiliary_tag="TTP12", auxiliary_text="If this record migration was created", auxiliary_text_en="If this record migration was created", auxiliary_text_de="Test", auxiliary_text_pt_br="Se a migration desse registro foi criada", migration_created="True")
+    __load_data(apps=apps, type="DTSM", tag="DTSM12", text="Migration created", text_en="Migration created", text_de="TestDesss", text_pt_br="\"Migration\" criada", auxiliary_tag="DTST12", auxiliary_text="If this record migration was created", auxiliary_text_en="If this record migration was created", auxiliary_text_de="Test", auxiliary_text_pt_br="Se a migration desse registro foi criada", migration_created="True")
 
 
 class Migration(migrations.Migration):

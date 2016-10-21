@@ -24,11 +24,11 @@ def load_data(apps, schema_editor):
     __load_data(apps=apps, tag='DTSM', name_pt_br="Modelo", name_en="Model", has_auxiliary_text=True,
                 auxiliary_tag="DTST")
     __load_data(apps=apps, tag='DTSMT', name_pt_br="Meta", name_en="Meta", has_auxiliary_text=True,
-                auxiliary_tag="DTSMTP")
+                auxiliary_tag="DTSDTSMTP")
     __load_data(apps=apps, tag='DTSG', name_pt_br="Texto", name_en="General Text", has_auxiliary_text=False,
                 auxiliary_tag="GTP")
     __load_data(apps=apps, tag='DTSE', name_pt_br="Mensagem de erro", name_en="Error message", has_auxiliary_text=False,
-                auxiliary_tag="MEE")
+                auxiliary_tag="DTSEE")
 
 
 def revert_data(apps, schema_editor):
