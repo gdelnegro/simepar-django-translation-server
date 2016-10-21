@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # Created by Gustavo Del Negro <gustavodelnegro@gmail.com> on 10/1/16.
 from django.core.management import BaseCommand
+from django.utils.translation import to_locale
 from datetime import datetime
 from translation_server.models import Translation
 from django.core.management import call_command
@@ -15,8 +16,11 @@ class Command(BaseCommand):
     file_map = {}
 
     def __create_translation_dirs(self):
+        if not os.path.exists(self.locale_path):
+            os.makedirs(self.locale_path)
         for language in self.languages_list:
-            call_command('makemessages', '-l', language)
+            # call_command('makemessages', '-l', language)
+            os.makedirs(self.locale_path+"/"+to_locale(language)+"/LC_MESSAGES")
 
     def __create_translation_files(self):
         self.__create_translation_dirs()
@@ -24,8 +28,8 @@ class Command(BaseCommand):
             self.file_map.update(
                 {
                     language: {
-                        'dir': self.locale_path + "/" + language + "/LC_MESSAGES/",
-                        'file': open(self.locale_path + "/" + language + "/LC_MESSAGES/django.po", "w")
+                        'dir': self.locale_path + "/" + to_locale(language) + "/LC_MESSAGES/",
+                        'file': open(self.locale_path + "/" + to_locale(language) + "/LC_MESSAGES/django.po", "w")
                     }
                 }
             )
