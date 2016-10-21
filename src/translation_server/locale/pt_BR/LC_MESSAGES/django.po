@@ -18,37 +18,28 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-# File generated in: 2016-10-21 12:50:55 
-
-msgid "DTSM2"
-msgstr "Atualizado em"
-
-msgid "DTST2"
-msgstr "Data de atualização do registro"
-
-msgid "DTSM3"
-msgstr "Tag"
-
-msgid "DTST3"
-msgstr "Identificador único que será usado como prefixo da tag das traduções"
-
-msgid "DTSM4"
-msgstr "Nome"
-
-msgid "DTST4"
-msgstr "Nome do registro"
-
-msgid "DTSM6"
-msgstr "Tag do texto auxiliar"
-
-msgid "DTST6"
-msgstr "O prefixo para o  identificador único do texto auxiliar"
+# File generated in: 2016-10-21 13:03:04 
 
 msgid "DTSM5"
 msgstr "Tem texto auxiliar?"
 
 msgid "DTST5"
 msgstr "Se o tipo de tradução tem texto auxiliar"
+
+msgid "DTSMT2"
+msgstr "Tradução"
+
+msgid "DTSMTP2"
+msgstr "Traduções"
+
+msgid "DTSE1"
+msgstr "O texto auxiliar deve ser diferente do texto principal"
+
+msgid "DTSM12"
+msgstr "\"Migration\" criada"
+
+msgid "DTST12"
+msgstr "Se a migration desse registro foi criada"
 
 msgid "DTSMT1"
 msgstr "Tipo de tradução"
@@ -92,18 +83,27 @@ msgstr "Texto auxiliar"
 msgid "DTST11"
 msgstr "Texto auxiliar"
 
-msgid "DTSMT2"
-msgstr "Tradução"
+msgid "DTSM2"
+msgstr "Atualizado em"
 
-msgid "DTSMTP2"
-msgstr "Traduções"
+msgid "DTST2"
+msgstr "Data de atualização do registro"
 
-msgid "DTSE1"
-msgstr "O texto auxiliar deve ser diferente do texto principal"
+msgid "DTSM3"
+msgstr "Tag"
 
-msgid "DTSM12"
-msgstr "\"Migration\" criada"
+msgid "DTST3"
+msgstr "Identificador único que será usado como prefixo da tag das traduções"
 
-msgid "DTST12"
-msgstr "Se a migration desse registro foi criada"
+msgid "DTSM4"
+msgstr "Nome"
+
+msgid "DTST4"
+msgstr "Nome do registro"
+
+msgid "DTSM6"
+msgstr "Tag do texto auxiliar"
+
+msgid "DTST6"
+msgstr "O prefixo para o  identificador único do texto auxiliar"
 
