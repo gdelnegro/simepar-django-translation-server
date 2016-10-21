@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-# File generated in: 2016-10-21 13:03:04 
+# File generated in: 2016-10-21 13:06:59 
 
 msgid "DTSM5"
 msgstr "Tem texto auxiliar?"

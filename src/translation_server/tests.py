@@ -29,14 +29,14 @@ class TestLastTranslationTagModel(TestCase):
         """
          If the tag exists, it should return a dict with the key last_id
         """
-        last_translation = LastTranslationTag('MDL1')
+        last_translation = LastTranslationTag('DTSM1')
         self.assertIn('last_id', last_translation.return_last_tag()['result'])
 
     def test_translation_tag_does_not_exists(self):
         """
          If the tag does not exists, it should return an empty dict
         """
-        last_translation = LastTranslationTag('MDL66')
+        last_translation = LastTranslationTag('DTSM66')
         self.assertNotIn('last_id', last_translation.return_last_tag()['result'])
 
 
@@ -195,7 +195,7 @@ class TestTranslationForm(TestCase):
                 form_data.update({field: value})
         return form_data
 
-    def translation_MDL_creation(self):
+    def translation_DTSM_creation(self):
         """
         the form must be valid with DTSM translation type
         """
@@ -204,7 +204,7 @@ class TestTranslationForm(TestCase):
         self.assertTrue(form.is_valid())
         self.assertTrue(form.save())
 
-    def translation_MTA_creation(self):
+    def translation_DTSMT_creation(self):
         """
         the form must be valid with DTSMT translation type
         """
@@ -213,7 +213,7 @@ class TestTranslationForm(TestCase):
         self.assertTrue(form.is_valid())
         self.assertTrue(form.save())
 
-    def translation_ME_creation(self):
+    def translation_DTSE_creation(self):
         """
         the form must be valid with DTSE translation type
         """
@@ -222,11 +222,11 @@ class TestTranslationForm(TestCase):
         self.assertTrue(form.is_valid())
         self.assertTrue(form.save())
 
-    def translation_GEN_creation(self):
+    def translation_DTSG_creation(self):
         """
-        the form must be valid with GEN translation type
+        the form must be valid with DTSG translation type
         """
-        form_data = self.make_form_data("GEN")
+        form_data = self.make_form_data("DTSG")
         form = TranslationAdminForm(data=form_data)
         self.assertTrue(form.is_valid())
         self.assertTrue(form.save())
