@@ -31,14 +31,14 @@ def clear_data(apps, schema_editor):
 
 
 def load_data(apps, schema_editor):
-    __load_data(apps=apps, tag="MDL8", type="MDL", text_pt_br="Tag", text_en="Tag", auxiliary_tag="TTP8", auxiliary_text_pt_br="Identificador único", auxiliary_text_en="Unique identifier")
-    __load_data(apps=apps, tag="MDL9", type="MDL", text_pt_br="Texto", text_en="Text", auxiliary_tag="TTP9", auxiliary_text_pt_br="Texto da tradução", auxiliary_text_en="Translation text")
-    __load_data(apps=apps, tag="MDL7", type="MDL", text_pt_br="Tipo de tradução", text_en="Translation Type", auxiliary_tag="TTP7", auxiliary_text_pt_br="Tipo de tradução do registro", auxiliary_text_en="Record translation type")
-    __load_data(apps=apps, tag="MDL10", type="MDL", text_pt_br="Tag auxiliar", text_en="Auxiliary tag", auxiliary_tag="TTP10", auxiliary_text_pt_br="Identificador único do texto auxiliar", auxiliary_text_en="Auxiliary text unique identifier")
-    __load_data(apps=apps, tag="MDL11", type="MDL", text_pt_br="Texto auxiliar", text_en="Auxiliary text", auxiliary_tag="TTP11", auxiliary_text_pt_br="Texto auxiliar", auxiliary_text_en="Auxiliary text")
-    __load_data(apps=apps, tag="MDL12", type="MDL", text_pt_br="\"Migration\" criada", text_en="Migration created", auxiliary_tag="TTP12", auxiliary_text_pt_br="\"Migration\" criada", auxiliary_text_en="Migration created")
-    __load_data(apps=apps, tag="MTA2", type="MTA", text_pt_br="Tradução", text_en="Translation", auxiliary_tag="MTP2", auxiliary_text_pt_br="Traduções", auxiliary_text_en="Translations")
-    __load_data(apps=apps, tag="ME1", type="ME", text_pt_br="O texto auxiliar deve ser diferente do texto principal", text_en="The auxiliary text must be different from the primary text", auxiliary_tag="", auxiliary_text_pt_br="", auxiliary_text_en="")
+    __load_data(apps=apps, tag="MDL8", type="DTSM", text_pt_br="Tag", text_en="Tag", auxiliary_tag="TTP8", auxiliary_text_pt_br="Identificador único", auxiliary_text_en="Unique identifier")
+    __load_data(apps=apps, tag="MDL9", type="DTSM", text_pt_br="Texto", text_en="Text", auxiliary_tag="TTP9", auxiliary_text_pt_br="Texto da tradução", auxiliary_text_en="Translation text")
+    __load_data(apps=apps, tag="MDL7", type="DTSM", text_pt_br="Tipo de tradução", text_en="Translation Type", auxiliary_tag="TTP7", auxiliary_text_pt_br="Tipo de tradução do registro", auxiliary_text_en="Record translation type")
+    __load_data(apps=apps, tag="MDL10", type="DTSM", text_pt_br="Tag auxiliar", text_en="Auxiliary tag", auxiliary_tag="TTP10", auxiliary_text_pt_br="Identificador único do texto auxiliar", auxiliary_text_en="Auxiliary text unique identifier")
+    __load_data(apps=apps, tag="MDL11", type="DTSM", text_pt_br="Texto auxiliar", text_en="Auxiliary text", auxiliary_tag="TTP11", auxiliary_text_pt_br="Texto auxiliar", auxiliary_text_en="Auxiliary text")
+    __load_data(apps=apps, tag="MDL12", type="DTSM", text_pt_br="\"Migration\" criada", text_en="Migration created", auxiliary_tag="TTP12", auxiliary_text_pt_br="\"Migration\" criada", auxiliary_text_en="Migration created")
+    __load_data(apps=apps, tag="MTA2", type="DTSMT", text_pt_br="Tradução", text_en="Translation", auxiliary_tag="MTP2", auxiliary_text_pt_br="Traduções", auxiliary_text_en="Translations")
+    __load_data(apps=apps, tag="ME1", type="DTSE", text_pt_br="O texto auxiliar deve ser diferente do texto principal", text_en="The auxiliary text must be different from the primary text", auxiliary_tag="", auxiliary_text_pt_br="", auxiliary_text_en="")
 
 
 class Migration(migrations.Migration):

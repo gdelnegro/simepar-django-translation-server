@@ -31,13 +31,13 @@ def clear_data(apps, schema_editor):
 
 
 def load_data(apps, schema_editor):
-    __load_data(apps=apps, tag="MDL2", type="MDL", text_pt_br="Atualizado em", text_en="Updated at", auxiliary_tag="TTP2", auxiliary_text_pt_br="Data de atualização do registro", auxiliary_text_en="Record update time")
-    __load_data(apps=apps, tag="MDL3", type="MDL", text_pt_br="Tag", text_en="Tag", auxiliary_tag="TTP3", auxiliary_text_pt_br="Identificador único que será usado como prefixo da tag das traduções", auxiliary_text_en="Unique identifier that will be used as prefix for the translations tag")
-    __load_data(apps=apps, tag="MDL4", type="MDL", text_pt_br="Nome", text_en="Name", auxiliary_tag="TTP4", auxiliary_text_pt_br="Nome do registro", auxiliary_text_en="Record name")
-    __load_data(apps=apps, tag="MDL6", type="MDL", text_pt_br="Tag do texto auxiliar", text_en="Auxiliary text tag", auxiliary_tag="TTP6", auxiliary_text_pt_br="O prefixo para o  identificador único do texto auxiliar", auxiliary_text_en="The unique identifier prefix for auxiliary text")
-    __load_data(apps=apps, tag="MDL5", type="MDL", text_pt_br="Tem texto auxiliar?", text_en="Has auxiliary text?", auxiliary_tag="TTP5", auxiliary_text_pt_br="Se o tipo de tradução tem texto auxiliar", auxiliary_text_en="If the translation type have auxiliary text")
-    __load_data(apps=apps, tag="MTA1", type="MTA", text_pt_br="Tipo de tradução", text_en="Translation Type", auxiliary_tag="MTP1", auxiliary_text_pt_br="Tipos de tradução", auxiliary_text_en="Translation Types")
-    __load_data(apps=apps, tag="MDL1", type="MDL", text_pt_br="Criado em", text_en="Created at", auxiliary_tag="TTP1", auxiliary_text_pt_br="Data de criação do registro", auxiliary_text_en="Record creation date")
+    __load_data(apps=apps, tag="MDL2", type="DTSM", text_pt_br="Atualizado em", text_en="Updated at", auxiliary_tag="TTP2", auxiliary_text_pt_br="Data de atualização do registro", auxiliary_text_en="Record update time")
+    __load_data(apps=apps, tag="MDL3", type="DTSM", text_pt_br="Tag", text_en="Tag", auxiliary_tag="TTP3", auxiliary_text_pt_br="Identificador único que será usado como prefixo da tag das traduções", auxiliary_text_en="Unique identifier that will be used as prefix for the translations tag")
+    __load_data(apps=apps, tag="MDL4", type="DTSM", text_pt_br="Nome", text_en="Name", auxiliary_tag="TTP4", auxiliary_text_pt_br="Nome do registro", auxiliary_text_en="Record name")
+    __load_data(apps=apps, tag="MDL6", type="DTSM", text_pt_br="Tag do texto auxiliar", text_en="Auxiliary text tag", auxiliary_tag="TTP6", auxiliary_text_pt_br="O prefixo para o  identificador único do texto auxiliar", auxiliary_text_en="The unique identifier prefix for auxiliary text")
+    __load_data(apps=apps, tag="MDL5", type="DTSM", text_pt_br="Tem texto auxiliar?", text_en="Has auxiliary text?", auxiliary_tag="TTP5", auxiliary_text_pt_br="Se o tipo de tradução tem texto auxiliar", auxiliary_text_en="If the translation type have auxiliary text")
+    __load_data(apps=apps, tag="MTA1", type="DTSMT", text_pt_br="Tipo de tradução", text_en="Translation Type", auxiliary_tag="MTP1", auxiliary_text_pt_br="Tipos de tradução", auxiliary_text_en="Translation Types")
+    __load_data(apps=apps, tag="MDL1", type="DTSM", text_pt_br="Criado em", text_en="Created at", auxiliary_tag="TTP1", auxiliary_text_pt_br="Data de criação do registro", auxiliary_text_en="Record creation date")
 
 
 class Migration(migrations.Migration):

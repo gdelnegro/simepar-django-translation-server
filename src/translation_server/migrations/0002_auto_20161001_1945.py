@@ -21,19 +21,19 @@ def __load_data(**kwargs):
 
 
 def load_data(apps, schema_editor):
-    __load_data(apps=apps, tag='MDL', name_pt_br="Modelo", name_en="Model", has_auxiliary_text=True,
-                auxiliary_tag="TTP")
-    __load_data(apps=apps, tag='MTA', name_pt_br="Meta", name_en="Meta", has_auxiliary_text=True,
-                auxiliary_tag="MTP")
-    __load_data(apps=apps, tag='GEN', name_pt_br="Texto", name_en="General Text", has_auxiliary_text=False,
+    __load_data(apps=apps, tag='DTSM', name_pt_br="Modelo", name_en="Model", has_auxiliary_text=True,
+                auxiliary_tag="DTST")
+    __load_data(apps=apps, tag='DTSMT', name_pt_br="Meta", name_en="Meta", has_auxiliary_text=True,
+                auxiliary_tag="DTSMTP")
+    __load_data(apps=apps, tag='DTSG', name_pt_br="Texto", name_en="General Text", has_auxiliary_text=False,
                 auxiliary_tag="GTP")
-    __load_data(apps=apps, tag='ME', name_pt_br="Mensagem de erro", name_en="Error message", has_auxiliary_text=False,
+    __load_data(apps=apps, tag='DTSE', name_pt_br="Mensagem de erro", name_en="Error message", has_auxiliary_text=False,
                 auxiliary_tag="MEE")
 
 
 def revert_data(apps, schema_editor):
     model = apps.get_model("translation_server", "TranslationType")
-    model.objects.filter(tag__in=["MDL", "MTA", "GEN", "ME"]).delete()
+    model.objects.filter(tag__in=["DTSM", "DTSMT", "DTSG", "DTSE"]).delete()
 
 
 class Migration(migrations.Migration):
