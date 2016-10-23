@@ -27,3 +27,5 @@ EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = False
 EMAIL_PORT = 1025
+
+TRANSLATION_SERVER_URL = u"http://localhost:8001/api/translation"
