@@ -65,7 +65,7 @@ msgstr ""
                     text = translation.get("text_"+language.replace("-", "_"), None)
                     self.file_map[language]['file'].write(
                         'msgid "%(tag)s"\nmsgstr "%(text)s"\n\n' % {
-                            'tag': translation.tag,
+                            'tag': translation['tag'],
                             'text': text.replace('"', '\\"') if text else ""
                         }
                     )
@@ -73,7 +73,7 @@ msgstr ""
                         auxiliary_text = translation.get("auxiliary_text_" + language.replace("-", "_"), None)
                         self.file_map[language]['file'].write(
                             'msgid "%(tag)s"\nmsgstr "%(text)s"\n\n' % {
-                                'tag': translation.auxiliary_tag,
+                                'tag': translation['auxiliary_tag'],
                                 'text': auxiliary_text.replace('"', '\\"') if auxiliary_text else ""
                             }
                         )
@@ -96,6 +96,7 @@ msgstr ""
     def handle(self, *args, **options):
         self.languages_list = [lang[0] for lang in settings.LANGUAGES]
         self.locale_path = options['locales_dir'] if len(options['locales_dir']) > 1 else self.BASE_DIR
+        self.__create_translation_files()
         if self.__create_translation_files():
             compile_options = {}
             for lang in self.languages_list:

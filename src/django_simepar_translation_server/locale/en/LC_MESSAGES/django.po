@@ -1,3 +1,4 @@
+
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
@@ -8,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-05 11:53+0000\n"
+"POT-Creation-Date: 2016-05-19 14:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,11 +17,93 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+# File generated in: 2016-10-23 22:15:57 
 
-#: django_simepar_translation_server/settings/_base.py:115
-msgid "English"
-msgstr ""
+msgid "DTSM5"
+msgstr "Has auxiliary text?"
 
-#: django_simepar_translation_server/settings/_base.py:116
-msgid "Brazilian Portuguese"
-msgstr ""
+msgid "DTST5"
+msgstr "If the translation type have auxiliary text"
+
+msgid "DTSMT2"
+msgstr "Translation"
+
+msgid "DTSMTP2"
+msgstr "Translations"
+
+msgid "DTSE1"
+msgstr "The auxiliary text must be different from the primary text"
+
+msgid "DTSM12"
+msgstr "Migration created"
+
+msgid "DTST12"
+msgstr "If this record migration was created"
+
+msgid "DTSMT1"
+msgstr "Translation Type"
+
+msgid "DTSMTP1"
+msgstr "Translation Types"
+
+msgid "DTSM1"
+msgstr "Created at"
+
+msgid "DTST1"
+msgstr "Record creation date"
+
+msgid "DTSM8"
+msgstr "Tag"
+
+msgid "DTST8"
+msgstr "Unique identifier"
+
+msgid "DTSM9"
+msgstr "Text"
+
+msgid "DTST9"
+msgstr "Translation text"
+
+msgid "DTSM7"
+msgstr "Translation Type"
+
+msgid "DTST7"
+msgstr "Record translation type"
+
+msgid "DTSM10"
+msgstr "Auxiliary tag"
+
+msgid "DTST10"
+msgstr "Auxiliary text unique identifier"
+
+msgid "DTSM11"
+msgstr "Auxiliary text"
+
+msgid "DTST11"
+msgstr "Auxiliary text"
+
+msgid "DTSM2"
+msgstr "Updated at"
+
+msgid "DTST2"
+msgstr "Record update time"
+
+msgid "DTSM3"
+msgstr "Tag"
+
+msgid "DTST3"
+msgstr "Unique identifier that will be used as prefix for the translations tag"
+
+msgid "DTSM4"
+msgstr "Name"
+
+msgid "DTST4"
+msgstr "Record name"
+
+msgid "DTSM6"
+msgstr "Auxiliary text tag"
+
+msgid "DTST6"
+msgstr "The unique identifier prefix for auxiliary text"
+

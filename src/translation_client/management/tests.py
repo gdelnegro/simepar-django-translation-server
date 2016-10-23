@@ -21,4 +21,4 @@ class TestManagementCommands(TestCase):
         """
         Test getting data from url
         """
-        url = getattr(settings, "TRANSLATION_SERVER_URL", None)
+        call_command('sync_translations')

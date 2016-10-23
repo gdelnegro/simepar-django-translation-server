@@ -1,4 +1,3 @@
-
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
@@ -9,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-19 14:44+0000\n"
+"POT-Creation-Date: 2016-10-23 22:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,92 +17,120 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-# File generated in: 2016-10-05 11:53:28 
 
-msgid "MDL2"
-msgstr "Updated at"
-
-msgid "TTP2"
-msgstr "Record update time"
-
-msgid "MDL3"
-msgstr "Tag"
-
-msgid "TTP3"
-msgstr "Unique identifier that will be used as prefix for the translations tag"
-
-msgid "MDL4"
-msgstr "Name"
-
-msgid "TTP4"
-msgstr "Record name"
-
-msgid "MDL6"
-msgstr "Auxiliary text tag"
-
-msgid "TTP6"
-msgstr "The unique identifier prefix for auxiliary text"
-
-msgid "MDL5"
-msgstr "Has auxiliary text?"
-
-msgid "TTP5"
-msgstr "If the translation type have auxiliary text"
-
-msgid "MTA1"
-msgstr "Translation Type"
-
-msgid "MTP1"
-msgstr "Translation Types"
-
-msgid "MDL1"
-msgstr "Created at"
-
-msgid "TTP1"
-msgstr "Record creation date"
-
-msgid "MDL8"
-msgstr "Tag"
-
-msgid "TTP8"
-msgstr "Unique identifier"
-
-msgid "MDL9"
-msgstr "Text"
-
-msgid "TTP9"
-msgstr "Translation text"
-
-msgid "MDL7"
-msgstr "Translation Type"
-
-msgid "TTP7"
-msgstr "Record translation type"
-
-msgid "MDL10"
-msgstr "Auxiliary tag"
-
-msgid "TTP10"
-msgstr "Auxiliary text unique identifier"
-
-msgid "MDL11"
-msgstr "Auxiliary text"
-
-msgid "TTP11"
-msgstr "Auxiliary text"
-
-msgid "MTA2"
-msgstr "Translation"
-
-msgid "MTP2"
-msgstr "Translations"
-
+#: translation_server/forms.py:18
 msgid "ME1"
 msgstr "The auxiliary text must be different from the primary text"
 
+#: translation_server/models.py:6 translation_server/models.py:26
+msgid "MDL1"
+msgstr "Created at"
+
+#: translation_server/models.py:6 translation_server/models.py:26
+msgid "TTP1"
+msgstr "Record creation date"
+
+# File generated in: 2016-10-23 21:42:15 
+#: translation_server/models.py:7 translation_server/models.py:27
+msgid "MDL2"
+msgstr "Updated at"
+
+#: translation_server/models.py:7 translation_server/models.py:27
+msgid "TTP2"
+msgstr "Record update time"
+
+#: translation_server/models.py:8
+msgid "MDL3"
+msgstr "Tag"
+
+#: translation_server/models.py:8
+msgid "TTP3"
+msgstr "Unique identifier that will be used as prefix for the translations tag"
+
+#: translation_server/models.py:9
+msgid "MDL4"
+msgstr "Name"
+
+#: translation_server/models.py:9
+msgid "TTP4"
+msgstr "Record name"
+
+#: translation_server/models.py:10
+msgid "MDL5"
+msgstr "Has auxiliary text?"
+
+#: translation_server/models.py:10
+msgid "TTP5"
+msgstr "If the translation type have auxiliary text"
+
+#: translation_server/models.py:11
+msgid "MDL6"
+msgstr "Auxiliary text tag"
+
+#: translation_server/models.py:11
+msgid "TTP6"
+msgstr "The unique identifier prefix for auxiliary text"
+
+#: translation_server/models.py:15
+msgid "MTA1"
+msgstr "Translation Type"
+
+#: translation_server/models.py:16
+msgid "MTP1"
+msgstr "Translation Types"
+
+#: translation_server/models.py:29
+msgid "MDL7"
+msgstr "Translation Type"
+
+#: translation_server/models.py:29
+msgid "TTP7"
+msgstr "Record translation type"
+
+#: translation_server/models.py:30
+msgid "MDL8"
+msgstr "Tag"
+
+#: translation_server/models.py:30
+msgid "TTP8"
+msgstr "Unique identifier"
+
+#: translation_server/models.py:31
+msgid "MDL9"
+msgstr "Text"
+
+#: translation_server/models.py:31
+msgid "TTP9"
+msgstr "Translation text"
+
+#: translation_server/models.py:32
+msgid "MDL10"
+msgstr "Auxiliary tag"
+
+#: translation_server/models.py:32
+msgid "TTP10"
+msgstr "Auxiliary text unique identifier"
+
+#: translation_server/models.py:33
+msgid "MDL11"
+msgstr "Auxiliary text"
+
+#: translation_server/models.py:33
+msgid "TTP11"
+msgstr "Auxiliary text"
+
+#: translation_server/models.py:34
 msgid "MDL12"
 msgstr "Migration created"
 
+#: translation_server/models.py:34
 msgid "TTP12"
 msgstr "If this record migration was created"
 
+#: translation_server/models.py:37
+msgid "MTA2"
+msgstr "Translation"
+
+#: translation_server/models.py:38
+msgid "MTP2"
+msgstr "Translations"
