@@ -18,9 +18,17 @@ class Command(BaseCommand):
             default="",
             help="The locales dir to copy the translation files",
         )
+        parser.add_argument(
+            '--migrate',
+            action='store',
+            dest='migrate',
+            default=False,
+            help="If the translation migrations should be made",
+        )
 
     def handle(self, *args, **options):
         languages_list = [lang[0] for lang in settings.LANGUAGES]
-        call_command('make_translation_migrations', self.app_name)
-        call_command('migrate', self.app_name)
+        if options['migrate']:
+            call_command('make_translation_migrations', self.app_name)
+            call_command('migrate', self.app_name)
         call_command('make_translation', ",".join(languages_list), locales_dir=options['locales_dir'])

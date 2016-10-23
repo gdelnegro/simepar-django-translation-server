@@ -15,7 +15,7 @@ class TranslationAdminForm(forms.ModelForm):
         for language in self.languages_list:
             if cleaned_data.get("text_"+language) == cleaned_data.get('auxiliary_text_'+language):
                 self.add_error('auxiliary_text_' + language,
-                               forms.ValidationError(_('ME1')))
+                               forms.ValidationError(_('DTSE1')))
 
         return cleaned_data
 

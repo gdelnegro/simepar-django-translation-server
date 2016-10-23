@@ -3,17 +3,17 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class TranslationType(models.Model):
-    created_at = models.DateTimeField(_('MDL1'), auto_now_add=True, null=True, blank=True, help_text=_('TTP1'))
-    updated_at = models.DateTimeField(_('MDL2'), auto_now=True, null=True, blank=True, help_text=_('TTP2'))
-    tag = models.CharField(_('MDL3'), help_text=_('TTP3'), max_length=20, unique=True)
-    name = models.TextField(_('MDL4'), help_text=_('TTP4'))
-    has_auxiliary_text = models.BooleanField(_('MDL5'), help_text=_('TTP5'), default=True)
-    auxiliary_tag = models.CharField(_('MDL6'), help_text=_('TTP6'), max_length=20, unique=True, blank=True,
-                                     default=False)
+    created_at = models.DateTimeField(_('DTSM1'), auto_now_add=True, null=True, blank=True, help_text=_('DTST1'))
+    updated_at = models.DateTimeField(_('DTSM2'), auto_now=True, null=True, blank=True, help_text=_('DTST2'))
+    tag = models.CharField(_('DTSM3'), help_text=_('DTST3'), max_length=20, unique=True)
+    name = models.TextField(_('DTSM4'), help_text=_('DTST4'))
+    has_auxiliary_text = models.BooleanField(_('DTSM5'), help_text=_('DTST5'), default=True)
+    auxiliary_tag = models.CharField(_('DTSM6'), help_text=_('DTST6'), max_length=20, unique=True, blank=True,
+                                     default=False, null=True)
 
     class Meta:
-        verbose_name = _('MTA1')
-        verbose_name_plural = _('MTP1')
+        verbose_name = _('DTSMT1')
+        verbose_name_plural = _('DTSMTP1')
 
     def __str__(self):
         return "%s - %s" % (self.tag, self.name)
@@ -23,19 +23,19 @@ class TranslationType(models.Model):
 
 
 class Translation(models.Model):
-    created_at = models.DateTimeField(_('MDL1'), auto_now_add=True, null=True, blank=True, help_text=_('TTP1'))
-    updated_at = models.DateTimeField(_('MDL2'), auto_now=True, null=True, blank=True, help_text=_('TTP2'))
+    created_at = models.DateTimeField(_('DTSM1'), auto_now_add=True, null=True, blank=True, help_text=_('DTST1'))
+    updated_at = models.DateTimeField(_('DTSM2'), auto_now=True, null=True, blank=True, help_text=_('DTST2'))
     type = models.ForeignKey(TranslationType, on_delete=None, related_name="translation_translation_type",
-                             verbose_name=_('MDL7'), help_text=_('TTP7'))
-    tag = models.CharField(_('MDL8'), help_text=_('TTP8'), max_length=20, unique=True)
-    text = models.TextField(_('MDL9'), help_text=_('TTP9'))
-    auxiliary_tag = models.CharField(_('MDL10'), help_text=_('TTP10'), max_length=20, blank=True, null=True)
-    auxiliary_text = models.TextField(_('MDL11'), help_text=_('TTP11'), blank=True, null=True)
-    migration_created = models.BooleanField(_('MDL12'), help_text=_('TTP12'), default=False)
+                             verbose_name=_('DTSM7'), help_text=_('DTST7'))
+    tag = models.CharField(_('DTSM8'), help_text=_('DTST8'), max_length=20, unique=True)
+    text = models.TextField(_('DTSM9'), help_text=_('DTST9'))
+    auxiliary_tag = models.CharField(_('DTSM10'), help_text=_('DTST10'), max_length=20, blank=True, null=True)
+    auxiliary_text = models.TextField(_('DTSM11'), help_text=_('DTST11'), blank=True, null=True)
+    migration_created = models.BooleanField(_('DTSM12'), help_text=_('DTST12'), default=False)
 
     class Meta:
-        verbose_name = _('MTA2')
-        verbose_name_plural = _('MTP2')
+        verbose_name = _('DTSMT2')
+        verbose_name_plural = _('DTSMTP2')
 
     def __str__(self):
         return "%s" % self.tag
