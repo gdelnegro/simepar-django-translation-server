@@ -3,6 +3,7 @@
 from django.core.management import BaseCommand
 from datetime import datetime
 from django.core.management import call_command
+from django.utils.translation import to_locale
 from django.conf import settings
 import os
 import requests
@@ -15,13 +16,14 @@ class Command(BaseCommand):
     BASE_DIR = os.path.join(settings.BASE_DIR, 'locale')
     file_map = {}
     url = getattr(settings, "TRANSLATION_SERVER_URL", None)
-    # r = requests.get('http://api.example.com/books', params=params)
-    # books = r.json()
-    # books_list = {'books': books['results']}
 
     def __create_translation_dirs(self):
+        if not os.path.exists(self.locale_path):
+            os.makedirs(self.locale_path)
         for language in self.languages_list:
-            call_command('makemessages', '-l', language)
+            # call_command('makemessages', '-l', language)
+            if not os.path.exists(self.locale_path+"/"+to_locale(language)+"/LC_MESSAGES"):
+                os.makedirs(self.locale_path+"/"+to_locale(language)+"/LC_MESSAGES")
 
     def __create_translation_files(self):
         self.__create_translation_dirs()
@@ -29,8 +31,8 @@ class Command(BaseCommand):
             self.file_map.update(
                 {
                     language: {
-                        'dir': self.locale_path + "/" + language + "/LC_MESSAGES/",
-                        'file': open(self.locale_path + "/" + language + "/LC_MESSAGES/django.po", "w")
+                        'dir': self.locale_path + "/" + to_locale(language) + "/LC_MESSAGES/",
+                        'file': open(self.locale_path + "/" + to_locale(language) + "/LC_MESSAGES/django.po", "w")
                     }
                 }
             )
