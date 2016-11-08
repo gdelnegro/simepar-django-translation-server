@@ -9,9 +9,9 @@ from django.urls import reverse
 
 
 class TranslationAdminForm(forms.ModelForm):
-    translations_url = forms.CharField(max_length=200)
-    translation_type_url = forms.CharField(max_length=200)
-    last_translation_tag_url = forms.CharField(max_length=200)
+    translations_url = forms.CharField(max_length=200, widget=forms.HiddenInput())
+    translation_type_url = forms.CharField(max_length=200, widget=forms.HiddenInput())
+    last_translation_tag_url = forms.CharField(max_length=200, widget=forms.HiddenInput())
     languages_list = [lang[0].replace('-', '_') for lang in settings.LANGUAGES]
 
     def __init__(self, *args, **kwargs):
