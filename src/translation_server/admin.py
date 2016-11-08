@@ -23,7 +23,7 @@ class TranslationAdmin(TabbedTranslationAdmin):
     form = TranslationAdminForm
     fieldsets = (
         ('Translation type', {
-            'fields': ('type',)
+            'fields': ('type', 'translations_url', 'translation_type_url', 'last_translation_tag_url')
         }),
         ('Primary info', {
             'fields': ('tag', 'text')
