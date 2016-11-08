@@ -7,19 +7,42 @@ from translation_server.forms import *
 
 class CustomModelAdminMixin(object):
     def __init__(self, model, admin_site):
+
         self.list_display = [field.name for field in model._meta.fields if field.name != "id"]
         super(CustomModelAdminMixin, self).__init__(model, admin_site)
         self.filter_horizontal = [field.name for field in model._meta.get_fields() if
                                   field.many_to_many and "reverse" not in str(type(field))]
 
+        related_fields_to_add = ["tag", "text"]
+        # get all fields that aren't related to another model
+        self.search_fields = [field.name for field in model._meta.get_fields() if
+                              not field.many_to_many and "Point" not in str(type(field)) and "related" not in str(
+                                  type(field))]
+
+        # get all languages installed on settings.py
+        languages_list = [lang[0].replace("-", "_") for lang in settings.LANGUAGES]
+
+        related_fields = []
+        # get all fields that are related to another model
+        for model_field in model._meta.get_fields():
+            if not model_field.many_to_many and "related" in str(type(model_field)):
+                for related_field in model_field.related_model._meta.get_fields():
+                    # if the field have one of the fields from the 'related_fields_to_add' variable
+                    # and one of the languages in the field name, add it to the search_fields
+                    if any("_"+language_code in related_field.name for language_code in languages_list):
+                        related_fields.append(model_field.name+"__"+related_field.name)
+                        self.search_fields.append(model_field.name+"__"+related_field.name)
+
+        self.search_fields.remove("id")
+
 
 @admin.register(TranslationType)
-class TranslationTypeAdmin(TabbedTranslationAdmin):
+class TranslationTypeAdmin(CustomModelAdminMixin, TabbedTranslationAdmin):
     pass
 
 
 @admin.register(Translation)
-class TranslationAdmin(TabbedTranslationAdmin):
+class TranslationAdmin(CustomModelAdminMixin, TabbedTranslationAdmin):
     form = TranslationAdminForm
     fieldsets = (
         ('Translation type', {
